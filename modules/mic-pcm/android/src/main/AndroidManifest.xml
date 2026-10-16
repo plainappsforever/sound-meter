@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <!-- Capture only. The microphone foreground service (service entry, FOREGROUND_SERVICE,
+       FOREGROUND_SERVICE_MICROPHONE) is added by the APP's config plugin (sound-meter: plugins/with-mic-fgs.js), so an
+       app that reuses this module without background capture (tuner) does not inherit a Play FGS declaration. -->
+  <uses-permission android:name="android.permission.RECORD_AUDIO" />
+</manifest>

@@ -1,0 +1,128 @@
+Blind set 1 — engine run "fix-round-1-tuning"
+
+SIGNALS: 2400 assertions — gated 2078: pass 2068, fail 10; info-only 19 (pass 19, outside 0); not produced by the engine 303
+  S01 e1-cal-1k-48k                        ok   42/42 (n/p 6)
+  S02 e1-cal-1k-44k                        ok   42/42 (n/p 6)
+  S03 e2-100Hz-LZ94-48k                    ok   120/120 (n/p 19)
+  S04 sine-19.95Hz-48k                     FAIL 32/33 (n/p 5)
+      LZeq_1s[0] expected -19.9903 (tol 0.005) engine -20.0026 [sourced]
+  S05 sine-31.62Hz-44k                     ok   33/33 (n/p 5)
+  S06 sine-63.10Hz-48k                     ok   33/33 (n/p 5)
+  S07 sine-100.00Hz-44k                    ok   33/33 (n/p 5)
+  S08 sine-125.89Hz-48k                    ok   33/33 (n/p 5)
+  S09 sine-251.19Hz-44k                    ok   39/39 (n/p 6)
+  S10 sine-501.19Hz-48k                    ok   39/39 (n/p 6)
+  S11 sine-1000Hz-44k                      ok   123/123 (n/p 20)
+  S12 sine-1995Hz-48k                      ok   39/39 (n/p 6)
+  S13 sine-3981Hz-44k                      ok   39/39 (n/p 6)
+  S14 sine-5012Hz-48k                      ok   39/39 (n/p 6)
+  S15 sine-7943Hz-44k                      ok   39/39 (n/p 6)
+  S16 sine-10000Hz-48k                     ok   39/39 (n/p 6)
+  S17 sine-12589Hz-44k                     ok   39/39 (n/p 6)
+  S18 sine-15849Hz-48k                     ok   20/20 (n/p 6)
+  S19 pink-noise-20-20k-48k                ok   39/39 (n/p 5)
+  S20 pink-noise-20-20k-44k                ok   39/39 (n/p 5)
+  S21 white-noise-flat-48k                 ok   39/39 (n/p 5)
+  S22 gauss-white-noise-44k                ok   25/25 (n/p 4)
+  S23 pink-multitone-31x3oct-48k           ok   31/31 (n/p 5)
+  S24 pink-multitone-31x3oct-44k           FAIL 30/31 (n/p 5)
+      LZFmax_1s[1] expected -19.6964 (tol 0.01) engine -19.7108 [sourced]
+  S25 burst-4k-fast-200ms-48k              ok   26/26 (n/p 5)
+  S26 burst-4k-fast-2ms-48k                ok   26/26 (n/p 5)
+  S27 burst-4k-fast-50ms-44k               ok   26/26 (n/p 5)
+  S28 burst-4k-slow-200ms-44k              ok   61/61 (n/p 13)
+  S29 burst-4k-slow-2ms-48k                ok   61/61 (n/p 13)
+  S30 step-fast-1k-48k                     ok   91/91 (n/p 9)
+  S31 step-slow-1k-44k                     ok   301/301 (n/p 30)
+  S32 percentile-ladder-1k-48k             ok   101/101 (n/p 10)
+  S33 clip-hard-1k-amp2-48k                ok   23/23 (n/p 3)
+  S34 clip-flattop-0.7-1k-44k              FAIL 20/23 (n/p 3)
+      overload[0] expected 1 (tol 0) engine 0.0000 [sourced]
+      overload[1] expected 1 (tol 0) engine 0.0000 [sourced]
+      overload[2] expected 1 (tol 0) engine 0.0000 [sourced]
+  S35 clip-flattop-0.4-1k-48k              ok   23/23 (n/p 3)
+  S36 sine-1k-minus0.1dBFS-48k             ok   39/39 (n/p 6)
+  S37 sine-20Hz-minus0.1dBFS-44k           FAIL 32/33 (n/p 5)
+      LZeq_1s[0] expected -3.1006 (tol 0.005) engine -3.1129 [sourced]
+  S38 sine-1k-0.9995-44k                   ok   39/39 (n/p 6)
+  S39 clip-burst-in-second2-48k            ok   30/30 (n/p 4)
+  S40 pcm16-20Hz-minus1dBFS-48k            FAIL 12/16 (n/p 3)
+      LZeq_1s[0] expected -4.0006 (tol 0.005) engine -4.0129 [sourced]
+      overload[0] expected 1 (tol 0) engine 0.0000 [UNCONFIRMED, spec weakness]
+      overload[1] expected 1 (tol 0) engine 0.0000 [UNCONFIRMED, spec weakness]
+      overload[2] expected 1 (tol 0) engine 0.0000 [UNCONFIRMED, spec weakness]
+  S41 silence-exact-zeros-48k              ok   9/9
+  S42 near-silence-1k-minus100dBFS-44k     ok   39/39 (n/p 6)
+  S43 one-lsb-per-second-48k               ok   12/12 (n/p 3)
+  S44 impulse-fullscale-on-floor-48k       ok   20/20 (n/p 4)
+  S45 partial-last-second-1k-48k           ok   26/26 (n/p 4)
+  S46 lf-hint-50Hz-plus-1k-44k             ok   25/25 (n/p 4)
+
+NIGHTS: 17/20 nights fully right; checks 359/371 pass
+  N01 quiet-steady-none                    ok   Δ10: 0 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: []
+  N02 gradual-traffic-none                 ok   Δ10: 0 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: []
+  N03 subfloor-and-edges-none              ok   Δ10: 0 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: []
+  N04 short-bangs                          ok   Δ10: 7 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: [[3000,3001],[5400,5405],[9000,9001],[12000,12001],[15000,15001],[20000,20001],[24000,24002]]
+  N05 exact-boundaries                     ok   Δ10: 8 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: [[1200,1201],[1800,1812],[2100,2101],[2112,2113],[3000,3075],[12300,12301],[25000,25010],[25021,25026]]
+  N06 low-rumble-8min                      ok   Δ10: 2 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: [[7200,7680],[18000,18300]]
+  N07 low-rumble-20min                     FAIL Δ10: 1 · matches reading(s): prev/span/hold, prev/loud/hold, incl/span/hold, incl/loud/hold
+      delta 10: start/end exact: 0/1 expected intervals found exactly
+      delta 10: start/end ±1 s (A5): 0/1
+      engine events: [[10800,12000]]
+  N08 party-rising-1h                      FAIL Δ10: 2 · matches reading(s): prev/span/hold, prev/loud/hold, incl/span/hold, incl/loud/hold
+      delta 10: count: 2 (expected 9)
+      delta 10: start/end exact: 1/9 expected intervals found exactly
+      delta 10: start/end ±1 s (A5): 1/9
+      summary events: 2 (expected 9)
+      summary events_22_06: 2 (expected 9)
+      engine events: [[2021,2022],[2034,9000]]
+  N09 overlapping                          ok   Δ10: 4 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: [[9000,9399],[15000,15029],[20000,20006],[20017,20023]]
+  N10 footsteps                            ok   Δ10: 6 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: [[6000,6118],[12000,12001],[12012,12013],[12024,12025],[12036,12037],[12048,12049]]
+  N11 dst-fall-back                        ok   Δ10: 3 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: [[12600,12620],[14390,14430],[16200,16220]]
+  N12 dst-spring-forward                   ok   Δ10: 3 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: [[9000,9015],[10780,10820],[16200,16215]]
+  N13 gaps                                 ok   Δ10: 7 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: [[3000,3020],[3025,3040],[11400,11405],[14990,14996],[15100,15103],[19998,20000],[20010,20012]]
+  N14 sensitivity-high-normal-low          ok   Δ6: 9, Δ10: 6, Δ15: 3 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: [[4000,4003],[5000,5003],[10000,10003],[11000,11003],[16000,16003],[17000,17003]]
+  N15 overload-partial                     ok   Δ10: 3 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: [[5000,5002],[9000,9005],[12000,12001]]
+  N16 session-start-and-end-edges          ok   Δ10: 3 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: [[60,63],[28600,28601],[28789,28796]]
+  N17 background-step-adapts               ok   Δ10: 3 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: [[9000,9001],[12000,12001],[13200,13201]]
+  N18 random-mix                           ok   Δ10: 15 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: [[900,1117],[2650,2679],[4508,4533],[6200,6321],[8227,8229],[9939,10314],[11995,12020],[13969,13970],[15275,15300],[16981,17146],[18751,18770],[20944,21123],[22622,22691],[24070,24083],[25737,25908]]
+  N19 event-until-session-end              ok   Δ10: 2 · matches reading(s): prev/span/none, prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/none, incl/span/hold, incl/loud/none, incl/loud/hold
+      engine events: [[14100,14110],[28770,28800]]
+  N20 long-chain-every-10s                 FAIL Δ10: 1 · matches reading(s): prev/span/hold, prev/loud/none, prev/loud/hold, incl/span/hold, incl/loud/none, incl/loud/hold
+      delta 10: count: 1 (expected 2)
+      delta 10: start/end exact: 0/2 expected intervals found exactly
+      delta 10: start/end ±1 s (A5): 0/2
+      summary events: 1 (expected 2)
+      summary events_22_06: 1 (expected 2)
+      engine events: [[7200,8091]]
+
+DOSE: 13/13 cases fully right; values 117/117 pass
+  D01 E5-2h100-6h85                        ok  
+  D02 E5-4h88-session4h                    ok  
+  D03 E5-2h91-projected                    ok  
+  D04 8h82                                 ok  
+  D05 8h79.9-below-threshold               ok  
+  D06 8h80.0-threshold-inclusive           ok  
+  D07 8h85-osha-action-level               ok  
+  D08 8h90-osha-pel                        ok  
+  D09 8h-impulsive-LAeq95-LAS88            ok  
+  D10 4h88-gap1h-3h70                      ok  
+  D11 1h94-projected                       ok  
+  D12 8h78-peak136                         ok  
+  D13 2h97-6h60                            ok  

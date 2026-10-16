@@ -1,0 +1,66 @@
+# Public build check: every push, pull request and version tag is built from source on GitHub's servers, the same way
+# F-Droid builds it (unsigned release APK, no secrets). The unsigned APK is kept as a workflow artifact for 14 days.
+# The SIGNED release files are NOT made here: the maintainer signs them on his own computer
+# (scripts/oss/sign-release.sh in the private template) and attaches them with `gh release upload`.
+# No repository secrets are needed or used.
+name: build-android
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  android:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      APP_VARIANT: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Install dependencies and run all checks
+        run: |
+          npm ci
+          npm run verify
+
+      - name: Tag must match the app version
+        if: github.ref_type == 'tag'
+        run: |
+          version=$(node -p "require('./package.json').version")
+          cfg=$(npx expo config --type public --json | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.parse(s).version))')
+          [ "v$cfg" = "$GITHUB_REF_NAME" ] || { echo "::error::tag $GITHUB_REF_NAME does not match app version v$cfg (package.json $version)"; exit 1; }
+
+      - name: Generate the native Android project
+        # Fresh checkout: android/ does not exist yet, so nothing is cleaned or overwritten.
+        run: |
+          npx expo prebuild --platform android
+          sed -i -e '/signingConfig /d' android/app/build.gradle
+          printf '\nandroid { dependenciesInfo { includeInApk = false; includeInBundle = false } }\n' >> android/app/build.gradle
+
+      - name: Build the unsigned release APK (arm64-v8a)
+        run: |
+          cd android
+          ./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a --console=plain
+          ls -l app/build/outputs/apk/release/
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unsigned-apk-arm64-v8a
+          path: android/app/build/outputs/apk/release/app-release-unsigned.apk
+          retention-days: 14

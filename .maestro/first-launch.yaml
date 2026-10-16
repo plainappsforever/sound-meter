@@ -1,0 +1,15 @@
+appId: ${APP_ID}
+name: First launch - P1 placeholder (P4 replaces this with SPEC flow 1; not run yet, no device phase)
+tags:
+  - smoke
+---
+- launchApp:
+    clearState: true
+    stopApp: true
+- extendedWaitUntil:
+    visible:
+      id: meter-screen
+    timeout: 90000
+- assertVisible:
+    id: meter-unit
+- assertVisible: Not calibrated

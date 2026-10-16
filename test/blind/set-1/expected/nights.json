@@ -1,0 +1,3643 @@
+{
+ "about": "Synthetic 8-h nights for SPEC 7.7. Times: UTC epoch ms; second index s = (t - start)/1000. Primary interpretation = prev/span/none; see FORMAT.md.",
+ "variants": {
+  "window": {
+   "prev": "B(t) from [t-600, t-1]",
+   "incl": "B(t) from [t-599, t]"
+  },
+  "membership": {
+   "span": "all seconds from an event start to its latest loud second are inside",
+   "loud": "only loud seconds are inside"
+  },
+  "undefined_B": {
+   "none": "< 60 usable seconds -> nothing is loud",
+   "hold": "< 60 usable seconds -> keep the last defined B"
+  }
+ },
+ "nights": [
+  {
+   "id": "N01",
+   "name": "quiet-steady-none",
+   "status": "sourced",
+   "note": "Quiet bedroom, LAeq 28 +-0.8 dB, LAFmax up to +2.8 dB: nothing to detect.",
+   "csv": "nights/N01_quiet-steady-none.csv",
+   "blocks": "nights/N01_quiet-steady-none.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1792184400000,
+   "start_local": "2026-10-16T23:00:00+02:00",
+   "end_local": "2026-10-17T07:00:00+02:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [],
+   "expected_events": {
+    "10": []
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 28.027,
+    "L10": 28.7,
+    "L50": 28.0,
+    "L90": 27.3,
+    "LAFmax": 30.8,
+    "LCpeak": 44.8,
+    "background_B": 27.3,
+    "events": 0,
+    "events_22_06": 0
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N02",
+   "name": "gradual-traffic-none",
+   "status": "sourced",
+   "note": "Traffic rises 27 -> 44 dB(A) over 2 h (0.14 dB/min) and stays; cars every 2 min only +4..5 dB above LAeq: the running L90 follows, nothing reaches B + 10.",
+   "csv": "nights/N02_gradual-traffic-none.csv",
+   "blocks": "nights/N02_gradual-traffic-none.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1792270800000,
+   "start_local": "2026-10-17T23:00:00+02:00",
+   "end_local": "2026-10-18T07:00:00+02:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "traffic",
+     "start_s": 19800,
+     "end_s": 27000,
+     "note": "gradual rise, must NOT be an event"
+    }
+   ],
+   "expected_events": {
+    "10": []
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 35.4272,
+    "L10": 41.4,
+    "L50": 27.4,
+    "L90": 26.4,
+    "LAFmax": 49.0,
+    "LCpeak": 60.4,
+    "background_B": 26.4,
+    "events": 0,
+    "events_22_06": 0
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N03",
+   "name": "subfloor-and-edges-none",
+   "status": "sourced",
+   "note": "Very quiet room (20 dB). Knocks reach LAFmax 34.9 >= B+10 but < 35 floor; handling bangs at 3-4 s, 40 s (warm-up) and in the last 10 s: none may start an event.",
+   "csv": "nights/N03_subfloor-and-edges-none.csv",
+   "blocks": "nights/N03_subfloor-and-edges-none.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1792355400000,
+   "start_local": "2026-10-18T22:30:00+02:00",
+   "end_local": "2026-10-19T06:30:00+02:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "handling",
+     "start_s": 3,
+     "end_s": 4,
+     "note": "first/last 10 s or warm-up: NOT an event"
+    },
+    {
+     "kind": "handling",
+     "start_s": 4,
+     "end_s": 5,
+     "note": "first/last 10 s or warm-up: NOT an event"
+    },
+    {
+     "kind": "handling",
+     "start_s": 40,
+     "end_s": 41,
+     "note": "first/last 10 s or warm-up: NOT an event"
+    },
+    {
+     "kind": "knock (sub-floor)",
+     "start_s": 3600,
+     "end_s": 3601,
+     "note": "LAFmax 34.9 < 35 floor: NOT an event"
+    },
+    {
+     "kind": "knock (sub-floor)",
+     "start_s": 7200,
+     "end_s": 7201,
+     "note": "LAFmax 34.9 < 35 floor: NOT an event"
+    },
+    {
+     "kind": "knock (sub-floor)",
+     "start_s": 7230,
+     "end_s": 7231,
+     "note": "LAFmax 34.9 < 35 floor: NOT an event"
+    },
+    {
+     "kind": "knock (sub-floor)",
+     "start_s": 14400,
+     "end_s": 14401,
+     "note": "LAFmax 34.9 < 35 floor: NOT an event"
+    },
+    {
+     "kind": "knock (sub-floor)",
+     "start_s": 21000,
+     "end_s": 21001,
+     "note": "LAFmax 34.9 < 35 floor: NOT an event"
+    },
+    {
+     "kind": "handling",
+     "start_s": 28793,
+     "end_s": 28794,
+     "note": "first/last 10 s or warm-up: NOT an event"
+    },
+    {
+     "kind": "handling",
+     "start_s": 28797,
+     "end_s": 28798,
+     "note": "first/last 10 s or warm-up: NOT an event"
+    }
+   ],
+   "expected_events": {
+    "10": []
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 23.2205,
+    "L10": 20.4,
+    "L50": 20.0,
+    "L90": 19.6,
+    "LAFmax": 65.0,
+    "LCpeak": 77.0,
+    "background_B": 19.6,
+    "events": 0,
+    "events_22_06": 0
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N04",
+   "name": "short-bangs",
+   "status": "sourced",
+   "note": "Door slams and bangs (1-2 s) on a 30 dB background; one 2-s bang followed after 2 quiet s by another -> merged.",
+   "csv": "nights/N04_short-bangs.csv",
+   "blocks": "nights/N04_short-bangs.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1792444500000,
+   "start_local": "2026-10-19T23:15:00+02:00",
+   "end_local": "2026-10-20T07:15:00+02:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "door",
+     "start_s": 3000,
+     "end_s": 3001,
+     "note": "impulsive, LAFmax 62.0"
+    },
+    {
+     "kind": "door",
+     "start_s": 5400,
+     "end_s": 5402,
+     "note": "impulsive, LAFmax 70.0"
+    },
+    {
+     "kind": "door",
+     "start_s": 5404,
+     "end_s": 5405,
+     "note": "impulsive, LAFmax 68.0"
+    },
+    {
+     "kind": "door",
+     "start_s": 9000,
+     "end_s": 9001,
+     "note": "impulsive, LAFmax 55.0"
+    },
+    {
+     "kind": "door",
+     "start_s": 12000,
+     "end_s": 12001,
+     "note": "impulsive, LAFmax 72.0"
+    },
+    {
+     "kind": "door",
+     "start_s": 15000,
+     "end_s": 15001,
+     "note": "impulsive, LAFmax 58.0"
+    },
+    {
+     "kind": "door",
+     "start_s": 20000,
+     "end_s": 20001,
+     "note": "impulsive, LAFmax 65.0"
+    },
+    {
+     "kind": "door",
+     "start_s": 24000,
+     "end_s": 24002,
+     "note": "impulsive, LAFmax 60.0"
+    }
+   ],
+   "expected_events": {
+    "10": [
+     {
+      "start_s": 3000,
+      "end_s": 3001,
+      "start_ms": 1792447500000,
+      "end_ms": 1792447501000,
+      "start_local": "2026-10-20T00:05:00+02:00",
+      "end_local": "2026-10-20T00:05:01+02:00",
+      "duration_s": 1,
+      "LAeq": 54.0,
+      "LCeq": 57.0,
+      "LAFmax": 62.0,
+      "LCpeak": 76.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 5400,
+      "end_s": 5405,
+      "start_ms": 1792449900000,
+      "end_ms": 1792449905000,
+      "start_local": "2026-10-20T00:45:00+02:00",
+      "end_local": "2026-10-20T00:45:05+02:00",
+      "duration_s": 5,
+      "LAeq": 59.214,
+      "LCeq": 62.2149,
+      "LAFmax": 70.0,
+      "LCpeak": 84.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [
+       2
+      ],
+      "merge_decision": "merged across quiet runs of 2 s (each <= 10)"
+     },
+     {
+      "start_s": 9000,
+      "end_s": 9001,
+      "start_ms": 1792453500000,
+      "end_ms": 1792453501000,
+      "start_local": "2026-10-20T01:45:00+02:00",
+      "end_local": "2026-10-20T01:45:01+02:00",
+      "duration_s": 1,
+      "LAeq": 47.0,
+      "LCeq": 50.0,
+      "LAFmax": 55.0,
+      "LCpeak": 69.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 12000,
+      "end_s": 12001,
+      "start_ms": 1792456500000,
+      "end_ms": 1792456501000,
+      "start_local": "2026-10-20T02:35:00+02:00",
+      "end_local": "2026-10-20T02:35:01+02:00",
+      "duration_s": 1,
+      "LAeq": 64.0,
+      "LCeq": 67.0,
+      "LAFmax": 72.0,
+      "LCpeak": 86.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 15000,
+      "end_s": 15001,
+      "start_ms": 1792459500000,
+      "end_ms": 1792459501000,
+      "start_local": "2026-10-20T03:25:00+02:00",
+      "end_local": "2026-10-20T03:25:01+02:00",
+      "duration_s": 1,
+      "LAeq": 50.0,
+      "LCeq": 53.0,
+      "LAFmax": 58.0,
+      "LCpeak": 72.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 20000,
+      "end_s": 20001,
+      "start_ms": 1792464500000,
+      "end_ms": 1792464501000,
+      "start_local": "2026-10-20T04:48:20+02:00",
+      "end_local": "2026-10-20T04:48:21+02:00",
+      "duration_s": 1,
+      "LAeq": 57.0,
+      "LCeq": 60.0,
+      "LAFmax": 65.0,
+      "LCpeak": 79.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 24000,
+      "end_s": 24002,
+      "start_ms": 1792468500000,
+      "end_ms": 1792468502000,
+      "start_local": "2026-10-20T05:55:00+02:00",
+      "end_local": "2026-10-20T05:55:02+02:00",
+      "duration_s": 2,
+      "LAeq": 52.0,
+      "LCeq": 55.0,
+      "LAFmax": 60.0,
+      "LCpeak": 74.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 2,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 31.0721,
+    "L10": 30.7,
+    "L50": 30.0,
+    "L90": 29.3,
+    "LAFmax": 72.0,
+    "LCpeak": 86.0,
+    "background_B": 29.3,
+    "events": 7,
+    "events_22_06": 7
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N05",
+   "name": "exact-boundaries",
+   "status": "sourced",
+   "note": "Noise-free background (B exactly 30.0, later 24.0): threshold equality, merge at exactly 10 vs 11 quiet seconds, the 35 floor, and SPEC E6 (75-s event, LAeq 49.70).",
+   "csv": "nights/N05_exact-boundaries.csv",
+   "blocks": "nights/N05_exact-boundaries.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1792530000000,
+   "start_local": "2026-10-20T23:00:00+02:00",
+   "end_local": "2026-10-21T07:00:00+02:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "boundary",
+     "start_s": 1200,
+     "end_s": 1201,
+     "note": "LAFmax 40.0 = B+10 -> loud (>=)"
+    },
+    {
+     "kind": "boundary",
+     "start_s": 1500,
+     "end_s": 1501,
+     "note": "LAFmax 39.9 < B+10 -> not loud"
+    },
+    {
+     "kind": "merge",
+     "start_s": 1800,
+     "end_s": 1812,
+     "note": "10 quiet seconds between -> ONE event"
+    },
+    {
+     "kind": "split",
+     "start_s": 2100,
+     "end_s": 2113,
+     "note": "11 quiet seconds between -> TWO events"
+    },
+    {
+     "kind": "E6",
+     "start_s": 3000,
+     "end_s": 3075,
+     "note": "SPEC E6: 60 s at 50, 5 s at 30, 10 s at 50 -> one event of 75 s, LAeq 49.70"
+    },
+    {
+     "kind": "floor",
+     "start_s": 12000,
+     "end_s": 12001,
+     "note": "B = 24.0: LAFmax 34.9 >= B+10 but < 35 -> not loud"
+    },
+    {
+     "kind": "floor",
+     "start_s": 12300,
+     "end_s": 12301,
+     "note": "LAFmax 35.0 = floor -> loud"
+    },
+    {
+     "kind": "split",
+     "start_s": 25000,
+     "end_s": 25026,
+     "note": "10 s loud, 11 quiet, 5 s loud -> TWO events"
+    }
+   ],
+   "expected_events": {
+    "10": [
+     {
+      "start_s": 1200,
+      "end_s": 1201,
+      "start_ms": 1792531200000,
+      "end_ms": 1792531201000,
+      "start_local": "2026-10-20T23:20:00+02:00",
+      "end_local": "2026-10-20T23:20:01+02:00",
+      "duration_s": 1,
+      "LAeq": 33.0,
+      "LCeq": 36.0,
+      "LAFmax": 40.0,
+      "LCpeak": 52.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 1800,
+      "end_s": 1812,
+      "start_ms": 1792531800000,
+      "end_ms": 1792531812000,
+      "start_local": "2026-10-20T23:30:00+02:00",
+      "end_local": "2026-10-20T23:30:12+02:00",
+      "duration_s": 12,
+      "LAeq": 33.9794,
+      "LCeq": 37.3389,
+      "LAFmax": 45.0,
+      "LCpeak": 57.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 2,
+      "merged_quiet_runs": [
+       10
+      ],
+      "merge_decision": "merged across quiet runs of 10 s (each <= 10)"
+     },
+     {
+      "start_s": 2100,
+      "end_s": 2101,
+      "start_ms": 1792532100000,
+      "end_ms": 1792532101000,
+      "start_local": "2026-10-20T23:35:00+02:00",
+      "end_local": "2026-10-20T23:35:01+02:00",
+      "duration_s": 1,
+      "LAeq": 40.0,
+      "LCeq": 43.0,
+      "LAFmax": 45.0,
+      "LCpeak": 57.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 2112,
+      "end_s": 2113,
+      "start_ms": 1792532112000,
+      "end_ms": 1792532113000,
+      "start_local": "2026-10-20T23:35:12+02:00",
+      "end_local": "2026-10-20T23:35:13+02:00",
+      "duration_s": 1,
+      "LAeq": 40.0,
+      "LCeq": 43.0,
+      "LAFmax": 45.0,
+      "LCpeak": 57.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 3000,
+      "end_s": 3075,
+      "start_ms": 1792533000000,
+      "end_ms": 1792533075000,
+      "start_local": "2026-10-20T23:50:00+02:00",
+      "end_local": "2026-10-20T23:51:15+02:00",
+      "duration_s": 75,
+      "LAeq": 49.7035,
+      "LCeq": 52.7035,
+      "LAFmax": 50.0,
+      "LCpeak": 65.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 70,
+      "merged_quiet_runs": [
+       5
+      ],
+      "merge_decision": "merged across quiet runs of 5 s (each <= 10)"
+     },
+     {
+      "start_s": 12300,
+      "end_s": 12301,
+      "start_ms": 1792542300000,
+      "end_ms": 1792542301000,
+      "start_local": "2026-10-21T02:25:00+02:00",
+      "end_local": "2026-10-21T02:25:01+02:00",
+      "duration_s": 1,
+      "LAeq": 30.0,
+      "LCeq": 33.0,
+      "LAFmax": 35.0,
+      "LCpeak": 47.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 25000,
+      "end_s": 25010,
+      "start_ms": 1792555000000,
+      "end_ms": 1792555010000,
+      "start_local": "2026-10-21T05:56:40+02:00",
+      "end_local": "2026-10-21T05:56:50+02:00",
+      "duration_s": 10,
+      "LAeq": 40.0,
+      "LCeq": 43.0,
+      "LAFmax": 45.0,
+      "LCpeak": 57.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 10,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 25021,
+      "end_s": 25026,
+      "start_ms": 1792555021000,
+      "end_ms": 1792555026000,
+      "start_local": "2026-10-21T05:57:01+02:00",
+      "end_local": "2026-10-21T05:57:06+02:00",
+      "duration_s": 5,
+      "LAeq": 40.0,
+      "LCeq": 43.0,
+      "LAFmax": 45.0,
+      "LCpeak": 57.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 5,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 29.9418,
+    "L10": 30.0,
+    "L50": 30.0,
+    "L90": 24.0,
+    "LAFmax": 50.0,
+    "LCpeak": 65.0,
+    "background_B": 24.0,
+    "events": 8,
+    "events_22_06": 8
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N06",
+   "name": "low-rumble-8min",
+   "status": "sourced",
+   "note": "Two low-frequency rumbles (8 min, 5 min), LCeq - LAeq 18 / 14 dB -> lf_hint 1.",
+   "csv": "nights/N06_low-rumble-8min.csv",
+   "blocks": "nights/N06_low-rumble-8min.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1792616400000,
+   "start_local": "2026-10-21T23:00:00+02:00",
+   "end_local": "2026-10-22T07:00:00+02:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "rumble (truck idling / bass)",
+     "start_s": 7200,
+     "end_s": 7680,
+     "note": "steady LAeq 41.0, LAFmax 42.0, LC-LA 18.0"
+    },
+    {
+     "kind": "rumble (heat pump)",
+     "start_s": 18000,
+     "end_s": 18300,
+     "note": "steady LAeq 40.0, LAFmax 40.5, LC-LA 14.0"
+    }
+   ],
+   "expected_events": {
+    "10": [
+     {
+      "start_s": 7200,
+      "end_s": 7680,
+      "start_ms": 1792623600000,
+      "end_ms": 1792624080000,
+      "start_local": "2026-10-22T01:00:00+02:00",
+      "end_local": "2026-10-22T01:08:00+02:00",
+      "duration_s": 480,
+      "LAeq": 41.0,
+      "LCeq": 59.0,
+      "LAFmax": 42.0,
+      "LCpeak": 71.0,
+      "lf_hint": 1,
+      "overload_s": 0,
+      "loud_s": 480,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 18000,
+      "end_s": 18300,
+      "start_ms": 1792634400000,
+      "end_ms": 1792634700000,
+      "start_local": "2026-10-22T04:00:00+02:00",
+      "end_local": "2026-10-22T04:05:00+02:00",
+      "duration_s": 300,
+      "LAeq": 40.0,
+      "LCeq": 54.0,
+      "LAFmax": 40.5,
+      "LCpeak": 66.0,
+      "lf_hint": 1,
+      "overload_s": 0,
+      "loud_s": 300,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 30.3828,
+    "L10": 29.7,
+    "L50": 29.0,
+    "L90": 28.3,
+    "LAFmax": 42.0,
+    "LCpeak": 71.0,
+    "background_B": 28.3,
+    "events": 2,
+    "events_22_06": 2
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N07",
+   "name": "low-rumble-20min",
+   "status": "UNCONFIRMED",
+   "note": "A 20-min rumble. SPEC 7.7 excludes event seconds from B and needs >= 60 usable seconds: after 540 s of event the window has < 60 -> literal reading: B undefined -> the event ends at 541 s; \"hold last B\" reading: one 1200-s event. SPEC does not say which.",
+   "csv": "nights/N07_low-rumble-20min.csv",
+   "blocks": "nights/N07_low-rumble-20min.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1792702800000,
+   "start_local": "2026-10-22T23:00:00+02:00",
+   "end_local": "2026-10-23T07:00:00+02:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "rumble (20 min)",
+     "start_s": 10800,
+     "end_s": 12000,
+     "note": "steady LAeq 42.0, LAFmax 43.0, LC-LA 18.0"
+    }
+   ],
+   "expected_events": {
+    "10": [
+     {
+      "start_s": 10800,
+      "end_s": 11341,
+      "start_ms": 1792713600000,
+      "end_ms": 1792714141000,
+      "start_local": "2026-10-23T02:00:00+02:00",
+      "end_local": "2026-10-23T02:09:01+02:00",
+      "duration_s": 541,
+      "LAeq": 42.0,
+      "LCeq": 60.0,
+      "LAFmax": 43.0,
+      "LCpeak": 72.0,
+      "lf_hint": 1,
+      "overload_s": 0,
+      "loud_s": 541,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 31.5424,
+    "L10": 29.7,
+    "L50": 29.0,
+    "L90": 28.3,
+    "LAFmax": 43.0,
+    "LCpeak": 72.0,
+    "background_B": 28.3,
+    "events": 1,
+    "events_22_06": 1
+   },
+   "variant_results": {
+    "prev/span/hold": [
+     [
+      10800,
+      12000
+     ]
+    ],
+    "prev/loud/hold": [
+     [
+      10800,
+      12000
+     ]
+    ],
+    "incl/span/hold": [
+     [
+      10800,
+      12000
+     ]
+    ],
+    "incl/loud/hold": [
+     [
+      10800,
+      12000
+     ]
+    ]
+   }
+  },
+  {
+   "id": "N08",
+   "name": "party-rising-1h",
+   "status": "UNCONFIRMED",
+   "note": "Party music: LAeq rises 30 -> 55 over 1 h, 1 h plateau, stops at 00:30. LAFmax = LAeq + 8.0 dB. Loud once the rise outruns the lagging L90 by 2 dB. Literal reading: a saw-tooth of events (each cut after 540 s when B becomes undefined, the next one starting when B lags again); hold-B reading: one event for the whole party.",
+   "csv": "nights/N08_party-rising-1h.csv",
+   "blocks": "nights/N08_party-rising-1h.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1792785600000,
+   "start_local": "2026-10-23T22:00:00+02:00",
+   "end_local": "2026-10-24T06:00:00+02:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "party",
+     "start_s": 1800,
+     "end_s": 9000,
+     "note": "gradual rise then plateau; expected list depends on interpretation (see variants)"
+    }
+   ],
+   "expected_events": {
+    "10": [
+     {
+      "start_s": 2021,
+      "end_s": 2022,
+      "start_ms": 1792787621000,
+      "end_ms": 1792787622000,
+      "start_local": "2026-10-23T22:33:41+02:00",
+      "end_local": "2026-10-23T22:33:42+02:00",
+      "duration_s": 1,
+      "LAeq": 31.8,
+      "LCeq": 40.8,
+      "LAFmax": 39.8,
+      "LCpeak": 49.1,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 2034,
+      "end_s": 2574,
+      "start_ms": 1792787634000,
+      "end_ms": 1792788174000,
+      "start_local": "2026-10-23T22:33:54+02:00",
+      "end_local": "2026-10-23T22:42:54+02:00",
+      "duration_s": 540,
+      "LAeq": 33.5814,
+      "LCeq": 42.6235,
+      "LAFmax": 43.6,
+      "LCpeak": 54.6,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 515,
+      "merged_quiet_runs": [
+       2,
+       2,
+       8,
+       1,
+       1,
+       2,
+       1,
+       1,
+       2,
+       1,
+       1,
+       2,
+       1
+      ],
+      "merge_decision": "merged across quiet runs of 2, 2, 8, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1 s (each <= 10)"
+     },
+     {
+      "start_s": 2622,
+      "end_s": 2623,
+      "start_ms": 1792788222000,
+      "end_ms": 1792788223000,
+      "start_local": "2026-10-23T22:43:42+02:00",
+      "end_local": "2026-10-23T22:43:43+02:00",
+      "duration_s": 1,
+      "LAeq": 35.9,
+      "LCeq": 44.7,
+      "LAFmax": 43.9,
+      "LCpeak": 50.9,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 2827,
+      "end_s": 3368,
+      "start_ms": 1792788427000,
+      "end_ms": 1792788968000,
+      "start_local": "2026-10-23T22:47:07+02:00",
+      "end_local": "2026-10-23T22:56:08+02:00",
+      "duration_s": 541,
+      "LAeq": 39.099,
+      "LCeq": 48.1063,
+      "LAFmax": 49.0,
+      "LCpeak": 60.1,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 494,
+      "merged_quiet_runs": [
+       9,
+       4,
+       6,
+       6,
+       2,
+       4,
+       4,
+       8,
+       2,
+       1,
+       1
+      ],
+      "merge_decision": "merged across quiet runs of 9, 4, 6, 6, 2, 4, 4, 8, 2, 1, 1 s (each <= 10)"
+     },
+     {
+      "start_s": 3631,
+      "end_s": 3632,
+      "start_ms": 1792789231000,
+      "end_ms": 1792789232000,
+      "start_local": "2026-10-23T23:00:31+02:00",
+      "end_local": "2026-10-23T23:00:32+02:00",
+      "duration_s": 1,
+      "LAeq": 43.0,
+      "LCeq": 51.9,
+      "LAFmax": 51.0,
+      "LCpeak": 59.4,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 3650,
+      "end_s": 4190,
+      "start_ms": 1792789250000,
+      "end_ms": 1792789790000,
+      "start_local": "2026-10-23T23:00:50+02:00",
+      "end_local": "2026-10-23T23:09:50+02:00",
+      "duration_s": 540,
+      "LAeq": 44.8197,
+      "LCeq": 53.9351,
+      "LAFmax": 54.8,
+      "LCpeak": 66.3,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 515,
+      "merged_quiet_runs": [
+       5,
+       2,
+       2,
+       2,
+       6,
+       1,
+       3,
+       2,
+       2
+      ],
+      "merge_decision": "merged across quiet runs of 5, 2, 2, 2, 6, 1, 3, 2, 2 s (each <= 10)"
+     },
+     {
+      "start_s": 4232,
+      "end_s": 4233,
+      "start_ms": 1792789832000,
+      "end_ms": 1792789833000,
+      "start_local": "2026-10-23T23:10:32+02:00",
+      "end_local": "2026-10-23T23:10:33+02:00",
+      "duration_s": 1,
+      "LAeq": 46.9,
+      "LCeq": 55.7,
+      "LAFmax": 54.9,
+      "LCpeak": 65.6,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 4439,
+      "end_s": 4980,
+      "start_ms": 1792790039000,
+      "end_ms": 1792790580000,
+      "start_local": "2026-10-23T23:13:59+02:00",
+      "end_local": "2026-10-23T23:23:00+02:00",
+      "duration_s": 541,
+      "LAeq": 50.3036,
+      "LCeq": 59.3273,
+      "LAFmax": 60.3,
+      "LCpeak": 71.2,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 506,
+      "merged_quiet_runs": [
+       3,
+       7,
+       2,
+       1,
+       5,
+       2,
+       1,
+       4,
+       2,
+       2,
+       1,
+       2,
+       2,
+       1
+      ],
+      "merge_decision": "merged across quiet runs of 3, 7, 2, 1, 5, 2, 1, 4, 2, 2, 1, 2, 2, 1 s (each <= 10)"
+     },
+     {
+      "start_s": 5245,
+      "end_s": 5780,
+      "start_ms": 1792790845000,
+      "end_ms": 1792791380000,
+      "start_local": "2026-10-23T23:27:25+02:00",
+      "end_local": "2026-10-23T23:36:20+02:00",
+      "duration_s": 535,
+      "LAeq": 54.8546,
+      "LCeq": 63.8895,
+      "LAFmax": 63.3,
+      "LCpeak": 74.9,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 443,
+      "merged_quiet_runs": [
+       1,
+       10,
+       2,
+       7,
+       2,
+       2,
+       3,
+       1,
+       1,
+       1,
+       1,
+       4,
+       1,
+       1,
+       1,
+       2,
+       3,
+       1,
+       1,
+       1,
+       1,
+       1,
+       1,
+       2,
+       1,
+       1,
+       1,
+       1,
+       1,
+       1,
+       1,
+       3,
+       1,
+       1,
+       2,
+       5,
+       2,
+       1,
+       1,
+       1,
+       3,
+       1,
+       3,
+       3,
+       7
+      ],
+      "merge_decision": "merged across quiet runs of 1, 10, 2, 7, 2, 2, 3, 1, 1, 1, 1, 4, 1, 1, 1, 2, 3, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 2, 5, 2, 1, 1, 1, 3, 1, 3, 3, 7 s (each <= 10)"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 46.7299,
+    "L10": 54.8,
+    "L50": 30.1,
+    "L90": 29.7,
+    "LAFmax": 63.3,
+    "LCpeak": 75.3,
+    "background_B": 29.7,
+    "events": 9,
+    "events_22_06": 9
+   },
+   "variant_results": {
+    "prev/span/hold": [
+     [
+      2021,
+      2022
+     ],
+     [
+      2034,
+      9000
+     ]
+    ],
+    "prev/loud/none": [
+     [
+      2021,
+      2022
+     ],
+     [
+      2034,
+      2599
+     ],
+     [
+      2622,
+      2623
+     ],
+     [
+      2635,
+      2675
+     ],
+     [
+      2868,
+      3452
+     ],
+     [
+      3469,
+      3528
+     ],
+     [
+      3721,
+      3732
+     ],
+     [
+      3749,
+      4333
+     ],
+     [
+      4350,
+      4398
+     ],
+     [
+      4573,
+      5150
+     ],
+     [
+      5174,
+      5237
+     ]
+    ],
+    "prev/loud/hold": [
+     [
+      2021,
+      2022
+     ],
+     [
+      2034,
+      9000
+     ]
+    ],
+    "incl/span/none": [
+     [
+      2021,
+      2022
+     ],
+     [
+      2034,
+      2574
+     ],
+     [
+      2621,
+      2622
+     ],
+     [
+      2827,
+      3368
+     ],
+     [
+      3631,
+      3632
+     ],
+     [
+      3650,
+      4190
+     ],
+     [
+      4231,
+      4232
+     ],
+     [
+      4439,
+      4440
+     ],
+     [
+      4457,
+      4997
+     ],
+     [
+      5039,
+      5040
+     ],
+     [
+      5258,
+      5260
+     ],
+     [
+      5273,
+      5768
+     ]
+    ],
+    "incl/span/hold": [
+     [
+      2021,
+      2022
+     ],
+     [
+      2034,
+      9000
+     ]
+    ],
+    "incl/loud/none": [
+     [
+      2021,
+      2022
+     ],
+     [
+      2034,
+      2599
+     ],
+     [
+      2621,
+      2622
+     ],
+     [
+      2634,
+      2674
+     ],
+     [
+      2868,
+      3452
+     ],
+     [
+      3468,
+      3527
+     ],
+     [
+      3721,
+      3735
+     ],
+     [
+      3749,
+      4335
+     ],
+     [
+      4349,
+      4397
+     ],
+     [
+      4573,
+      4574
+     ],
+     [
+      4590,
+      5162
+     ],
+     [
+      5173,
+      5174
+     ],
+     [
+      5190,
+      5236
+     ]
+    ],
+    "incl/loud/hold": [
+     [
+      2021,
+      2022
+     ],
+     [
+      2034,
+      9000
+     ]
+    ]
+   }
+  },
+  {
+   "id": "N09",
+   "name": "overlapping",
+   "status": "sourced",
+   "note": "Rumble with bangs on top and footsteps overlapping its end -> one event; music then a door 8 quiet s later -> one event; a car then a dog 11 quiet s later -> two events.",
+   "csv": "nights/N09_overlapping.csv",
+   "blocks": "nights/N09_overlapping.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1792877400000,
+   "start_local": "2026-10-24T23:30:00+02:00",
+   "end_local": "2026-10-25T06:30:00+01:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "rumble",
+     "start_s": 9000,
+     "end_s": 9300,
+     "note": "steady LAeq 42.0, LAFmax 42.5, LC-LA 18.0"
+    },
+    {
+     "kind": "bang on rumble",
+     "start_s": 9100,
+     "end_s": 9101,
+     "note": "impulsive, LAFmax 70.0"
+    },
+    {
+     "kind": "bang on rumble",
+     "start_s": 9150,
+     "end_s": 9151,
+     "note": "impulsive, LAFmax 65.0"
+    },
+    {
+     "kind": "footsteps",
+     "start_s": 9290,
+     "end_s": 9399,
+     "note": "37 impacts every 3 s, LAFmax 47.0"
+    },
+    {
+     "kind": "music",
+     "start_s": 15000,
+     "end_s": 15020,
+     "note": "steady LAeq 44.0, LAFmax 48.0, LC-LA 10.0"
+    },
+    {
+     "kind": "door",
+     "start_s": 15028,
+     "end_s": 15029,
+     "note": "impulsive, LAFmax 65.0"
+    },
+    {
+     "kind": "car",
+     "start_s": 20000,
+     "end_s": 20006,
+     "note": "steady LAeq 41.0, LAFmax 43.0, LC-LA 4.0"
+    },
+    {
+     "kind": "dog",
+     "start_s": 20017,
+     "end_s": 20023,
+     "note": "3 barks"
+    }
+   ],
+   "expected_events": {
+    "10": [
+     {
+      "start_s": 9000,
+      "end_s": 9399,
+      "start_ms": 1792886400000,
+      "end_ms": 1792886799000,
+      "start_local": "2026-10-25T02:00:00+02:00",
+      "end_local": "2026-10-25T02:06:39+02:00",
+      "duration_s": 399,
+      "LAeq": 42.4578,
+      "LCeq": 58.7955,
+      "LAFmax": 70.0,
+      "LCpeak": 84.0,
+      "lf_hint": 1,
+      "overload_s": 0,
+      "loud_s": 333,
+      "merged_quiet_runs": [
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2
+      ],
+      "merge_decision": "merged across quiet runs of 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 s (each <= 10)"
+     },
+     {
+      "start_s": 15000,
+      "end_s": 15029,
+      "start_ms": 1792892400000,
+      "end_ms": 1792892429000,
+      "start_local": "2026-10-25T02:40:00+01:00",
+      "end_local": "2026-10-25T02:40:29+01:00",
+      "duration_s": 29,
+      "LAeq": 45.4272,
+      "LCeq": 53.1912,
+      "LAFmax": 65.0,
+      "LCpeak": 79.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 21,
+      "merged_quiet_runs": [
+       8
+      ],
+      "merge_decision": "merged across quiet runs of 8 s (each <= 10)"
+     },
+     {
+      "start_s": 20000,
+      "end_s": 20006,
+      "start_ms": 1792897400000,
+      "end_ms": 1792897406000,
+      "start_local": "2026-10-25T04:03:20+01:00",
+      "end_local": "2026-10-25T04:03:26+01:00",
+      "duration_s": 6,
+      "LAeq": 41.0,
+      "LCeq": 45.0,
+      "LAFmax": 43.0,
+      "LCpeak": 57.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 6,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 20017,
+      "end_s": 20023,
+      "start_ms": 1792897417000,
+      "end_ms": 1792897423000,
+      "start_local": "2026-10-25T04:03:37+01:00",
+      "end_local": "2026-10-25T04:03:43+01:00",
+      "duration_s": 6,
+      "LAeq": 39.2756,
+      "LCeq": 42.42,
+      "LAFmax": 52.0,
+      "LCpeak": 64.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [
+       1,
+       2
+      ],
+      "merge_decision": "merged across quiet runs of 1, 2 s (each <= 10)"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 31.0527,
+    "L10": 30.7,
+    "L50": 30.0,
+    "L90": 29.3,
+    "LAFmax": 70.0,
+    "LCpeak": 84.0,
+    "background_B": 29.3,
+    "events": 4,
+    "events_22_06": 4
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N10",
+   "name": "footsteps",
+   "status": "sourced",
+   "note": "Footsteps every 3 s for 2 min -> one event; then every 12 s (11 quiet between) -> five events.",
+   "csv": "nights/N10_footsteps.csv",
+   "blocks": "nights/N10_footsteps.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1792965600000,
+   "start_local": "2026-10-25T23:00:00+01:00",
+   "end_local": "2026-10-26T07:00:00+01:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "footsteps",
+     "start_s": 6000,
+     "end_s": 6118,
+     "note": "40 impacts every 3 s, LAFmax 45.0"
+    },
+    {
+     "kind": "footsteps",
+     "start_s": 12000,
+     "end_s": 12049,
+     "note": "5 impacts every 12 s, LAFmax 45.0"
+    }
+   ],
+   "expected_events": {
+    "10": [
+     {
+      "start_s": 6000,
+      "end_s": 6118,
+      "start_ms": 1792971600000,
+      "end_ms": 1792971718000,
+      "start_local": "2026-10-26T00:40:00+01:00",
+      "end_local": "2026-10-26T00:41:58+01:00",
+      "duration_s": 118,
+      "LAeq": 30.374,
+      "LCeq": 40.7635,
+      "LAFmax": 45.0,
+      "LCpeak": 57.0,
+      "lf_hint": 1,
+      "overload_s": 0,
+      "loud_s": 40,
+      "merged_quiet_runs": [
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2,
+       2
+      ],
+      "merge_decision": "merged across quiet runs of 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 s (each <= 10)"
+     },
+     {
+      "start_s": 12000,
+      "end_s": 12001,
+      "start_ms": 1792977600000,
+      "end_ms": 1792977601000,
+      "start_local": "2026-10-26T02:20:00+01:00",
+      "end_local": "2026-10-26T02:20:01+01:00",
+      "duration_s": 1,
+      "LAeq": 33.0,
+      "LCeq": 45.0,
+      "LAFmax": 45.0,
+      "LCpeak": 57.0,
+      "lf_hint": 1,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 12012,
+      "end_s": 12013,
+      "start_ms": 1792977612000,
+      "end_ms": 1792977613000,
+      "start_local": "2026-10-26T02:20:12+01:00",
+      "end_local": "2026-10-26T02:20:13+01:00",
+      "duration_s": 1,
+      "LAeq": 33.0,
+      "LCeq": 45.0,
+      "LAFmax": 45.0,
+      "LCpeak": 57.0,
+      "lf_hint": 1,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 12024,
+      "end_s": 12025,
+      "start_ms": 1792977624000,
+      "end_ms": 1792977625000,
+      "start_local": "2026-10-26T02:20:24+01:00",
+      "end_local": "2026-10-26T02:20:25+01:00",
+      "duration_s": 1,
+      "LAeq": 33.0,
+      "LCeq": 45.0,
+      "LAFmax": 45.0,
+      "LCpeak": 57.0,
+      "lf_hint": 1,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 12036,
+      "end_s": 12037,
+      "start_ms": 1792977636000,
+      "end_ms": 1792977637000,
+      "start_local": "2026-10-26T02:20:36+01:00",
+      "end_local": "2026-10-26T02:20:37+01:00",
+      "duration_s": 1,
+      "LAeq": 33.0,
+      "LCeq": 45.0,
+      "LAFmax": 45.0,
+      "LCpeak": 57.0,
+      "lf_hint": 1,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 12048,
+      "end_s": 12049,
+      "start_ms": 1792977648000,
+      "end_ms": 1792977649000,
+      "start_local": "2026-10-26T02:20:48+01:00",
+      "end_local": "2026-10-26T02:20:49+01:00",
+      "duration_s": 1,
+      "LAeq": 33.0,
+      "LCeq": 45.0,
+      "LAFmax": 45.0,
+      "LCpeak": 57.0,
+      "lf_hint": 1,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 28.0317,
+    "L10": 28.5,
+    "L50": 28.0,
+    "L90": 27.5,
+    "LAFmax": 45.0,
+    "LCpeak": 57.0,
+    "background_B": 27.5,
+    "events": 6,
+    "events_22_06": 6
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N11",
+   "name": "dst-fall-back",
+   "status": "sourced",
+   "note": "Clock change at 01:00Z: local 02:00-03:00 occurs twice. Events at 02:30 CEST, 02:30 CET and one spanning the change (02:59:50 CEST -> 02:00:30 CET, 40 s). Detection works on UTC seconds.",
+   "csv": "nights/N11_dst-fall-back.csv",
+   "blocks": "nights/N11_dst-fall-back.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1792875600000,
+   "start_local": "2026-10-24T23:00:00+02:00",
+   "end_local": "2026-10-25T06:00:00+01:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "music",
+     "start_s": 12600,
+     "end_s": 12620,
+     "note": "steady LAeq 48.0, LAFmax 51.0, LC-LA 6.0"
+    },
+    {
+     "kind": "music",
+     "start_s": 14390,
+     "end_s": 14430,
+     "note": "steady LAeq 48.0, LAFmax 51.0, LC-LA 6.0"
+    },
+    {
+     "kind": "music",
+     "start_s": 16200,
+     "end_s": 16220,
+     "note": "steady LAeq 48.0, LAFmax 51.0, LC-LA 6.0"
+    }
+   ],
+   "expected_events": {
+    "10": [
+     {
+      "start_s": 12600,
+      "end_s": 12620,
+      "start_ms": 1792888200000,
+      "end_ms": 1792888220000,
+      "start_local": "2026-10-25T02:30:00+02:00",
+      "end_local": "2026-10-25T02:30:20+02:00",
+      "duration_s": 20,
+      "LAeq": 48.0,
+      "LCeq": 54.0,
+      "LAFmax": 51.0,
+      "LCpeak": 66.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 20,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 14390,
+      "end_s": 14430,
+      "start_ms": 1792889990000,
+      "end_ms": 1792890030000,
+      "start_local": "2026-10-25T02:59:50+02:00",
+      "end_local": "2026-10-25T02:00:30+01:00",
+      "duration_s": 40,
+      "LAeq": 48.0,
+      "LCeq": 54.0,
+      "LAFmax": 51.0,
+      "LCpeak": 66.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 40,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 16200,
+      "end_s": 16220,
+      "start_ms": 1792891800000,
+      "end_ms": 1792891820000,
+      "start_local": "2026-10-25T02:30:00+01:00",
+      "end_local": "2026-10-25T02:30:20+01:00",
+      "duration_s": 20,
+      "LAeq": 48.0,
+      "LCeq": 54.0,
+      "LAFmax": 51.0,
+      "LCpeak": 66.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 20,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 30.7154,
+    "L10": 30.7,
+    "L50": 30.0,
+    "L90": 29.3,
+    "LAFmax": 51.0,
+    "LCpeak": 66.0,
+    "background_B": 29.3,
+    "events": 3,
+    "events_22_06": 3
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N12",
+   "name": "dst-spring-forward",
+   "status": "sourced",
+   "note": "Clock change at 01:00Z: local 02:00-03:00 does not exist. Event 01:59:40 CET -> 03:00:20 CEST (40 s) plus events at 01:30 CET and 04:30 CEST.",
+   "csv": "nights/N12_dst-spring-forward.csv",
+   "blocks": "nights/N12_dst-spring-forward.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1806184800000,
+   "start_local": "2027-03-27T23:00:00+01:00",
+   "end_local": "2027-03-28T08:00:00+02:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "voices",
+     "start_s": 9000,
+     "end_s": 9015,
+     "note": "steady LAeq 48.0, LAFmax 51.0, LC-LA 6.0"
+    },
+    {
+     "kind": "voices",
+     "start_s": 10780,
+     "end_s": 10820,
+     "note": "steady LAeq 48.0, LAFmax 51.0, LC-LA 6.0"
+    },
+    {
+     "kind": "voices",
+     "start_s": 16200,
+     "end_s": 16215,
+     "note": "steady LAeq 48.0, LAFmax 51.0, LC-LA 6.0"
+    }
+   ],
+   "expected_events": {
+    "10": [
+     {
+      "start_s": 9000,
+      "end_s": 9015,
+      "start_ms": 1806193800000,
+      "end_ms": 1806193815000,
+      "start_local": "2027-03-28T01:30:00+01:00",
+      "end_local": "2027-03-28T01:30:15+01:00",
+      "duration_s": 15,
+      "LAeq": 48.0,
+      "LCeq": 54.0,
+      "LAFmax": 51.0,
+      "LCpeak": 66.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 15,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 10780,
+      "end_s": 10820,
+      "start_ms": 1806195580000,
+      "end_ms": 1806195620000,
+      "start_local": "2027-03-28T01:59:40+01:00",
+      "end_local": "2027-03-28T03:00:20+02:00",
+      "duration_s": 40,
+      "LAeq": 48.0,
+      "LCeq": 54.0,
+      "LAFmax": 51.0,
+      "LCpeak": 66.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 40,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 16200,
+      "end_s": 16215,
+      "start_ms": 1806201000000,
+      "end_ms": 1806201015000,
+      "start_local": "2027-03-28T04:30:00+02:00",
+      "end_local": "2027-03-28T04:30:15+02:00",
+      "duration_s": 15,
+      "LAeq": 48.0,
+      "LCeq": 54.0,
+      "LAFmax": 51.0,
+      "LCpeak": 66.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 15,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 30.6323,
+    "L10": 30.7,
+    "L50": 30.0,
+    "L90": 29.3,
+    "LAFmax": 51.0,
+    "LCpeak": 66.0,
+    "background_B": 29.3,
+    "events": 3,
+    "events_22_06": 3
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N13",
+   "name": "gaps",
+   "status": "sourced",
+   "note": "A 5-s frames-lost gap splits a loud stretch into two events; a 20-min interruption, then an event 200 s later; a 60-s mic-busy stretch (rows with empty levels); a 10-s route-change gap between two loud runs.",
+   "csv": "nights/N13_gaps.csv",
+   "blocks": "nights/N13_gaps.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1793052000000,
+   "start_local": "2026-10-26T23:00:00+01:00",
+   "end_local": "2026-10-27T07:00:00+01:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [
+    {
+     "start_s": 3020,
+     "end_s": 3025,
+     "reason": "frames-lost",
+     "start_ms": 1793055020000,
+     "end_ms": 1793055025000
+    },
+    {
+     "start_s": 10000,
+     "end_s": 11200,
+     "reason": "interruption",
+     "start_ms": 1793062000000,
+     "end_ms": 1793063200000
+    },
+    {
+     "start_s": 15000,
+     "end_s": 15060,
+     "reason": "mic-busy",
+     "start_ms": 1793067000000,
+     "end_ms": 1793067060000
+    },
+    {
+     "start_s": 20000,
+     "end_s": 20010,
+     "reason": "route-change",
+     "start_ms": 1793072000000,
+     "end_ms": 1793072010000
+    }
+   ],
+   "planted": [
+    {
+     "kind": "music",
+     "start_s": 3000,
+     "end_s": 3040,
+     "note": "steady LAeq 50.0, LAFmax 60.0, LC-LA 4.0"
+    },
+    {
+     "kind": "voices",
+     "start_s": 11400,
+     "end_s": 11405,
+     "note": "steady LAeq 50.0, LAFmax 60.0, LC-LA 4.0"
+    },
+    {
+     "kind": "voices",
+     "start_s": 14990,
+     "end_s": 14996,
+     "note": "steady LAeq 50.0, LAFmax 60.0, LC-LA 4.0"
+    },
+    {
+     "kind": "voices",
+     "start_s": 15100,
+     "end_s": 15103,
+     "note": "steady LAeq 50.0, LAFmax 60.0, LC-LA 4.0"
+    },
+    {
+     "kind": "music",
+     "start_s": 19998,
+     "end_s": 20012,
+     "note": "steady LAeq 50.0, LAFmax 60.0, LC-LA 4.0"
+    }
+   ],
+   "expected_events": {
+    "10": [
+     {
+      "start_s": 3000,
+      "end_s": 3020,
+      "start_ms": 1793055000000,
+      "end_ms": 1793055020000,
+      "start_local": "2026-10-26T23:50:00+01:00",
+      "end_local": "2026-10-26T23:50:20+01:00",
+      "duration_s": 20,
+      "LAeq": 50.0,
+      "LCeq": 54.0,
+      "LAFmax": 60.0,
+      "LCpeak": 72.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 20,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 3025,
+      "end_s": 3040,
+      "start_ms": 1793055025000,
+      "end_ms": 1793055040000,
+      "start_local": "2026-10-26T23:50:25+01:00",
+      "end_local": "2026-10-26T23:50:40+01:00",
+      "duration_s": 15,
+      "LAeq": 50.0,
+      "LCeq": 54.0,
+      "LAFmax": 60.0,
+      "LCpeak": 72.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 15,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 11400,
+      "end_s": 11405,
+      "start_ms": 1793063400000,
+      "end_ms": 1793063405000,
+      "start_local": "2026-10-27T02:10:00+01:00",
+      "end_local": "2026-10-27T02:10:05+01:00",
+      "duration_s": 5,
+      "LAeq": 50.0,
+      "LCeq": 54.0,
+      "LAFmax": 60.0,
+      "LCpeak": 72.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 5,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 14990,
+      "end_s": 14996,
+      "start_ms": 1793066990000,
+      "end_ms": 1793066996000,
+      "start_local": "2026-10-27T03:09:50+01:00",
+      "end_local": "2026-10-27T03:09:56+01:00",
+      "duration_s": 6,
+      "LAeq": 50.0,
+      "LCeq": 54.0,
+      "LAFmax": 60.0,
+      "LCpeak": 72.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 6,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 15100,
+      "end_s": 15103,
+      "start_ms": 1793067100000,
+      "end_ms": 1793067103000,
+      "start_local": "2026-10-27T03:11:40+01:00",
+      "end_local": "2026-10-27T03:11:43+01:00",
+      "duration_s": 3,
+      "LAeq": 50.0,
+      "LCeq": 54.0,
+      "LAFmax": 60.0,
+      "LCpeak": 72.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 19998,
+      "end_s": 20000,
+      "start_ms": 1793071998000,
+      "end_ms": 1793072000000,
+      "start_local": "2026-10-27T04:33:18+01:00",
+      "end_local": "2026-10-27T04:33:20+01:00",
+      "duration_s": 2,
+      "LAeq": 50.0,
+      "LCeq": 54.0,
+      "LAFmax": 60.0,
+      "LCpeak": 72.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 2,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 20010,
+      "end_s": 20012,
+      "start_ms": 1793072010000,
+      "end_ms": 1793072012000,
+      "start_local": "2026-10-27T04:33:30+01:00",
+      "end_local": "2026-10-27T04:33:32+01:00",
+      "duration_s": 2,
+      "LAeq": 50.0,
+      "LCeq": 54.0,
+      "LAFmax": 60.0,
+      "LCpeak": 72.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 2,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 27525,
+    "gap_s": 1275,
+    "LAeq": 30.7829,
+    "L10": 30.7,
+    "L50": 30.0,
+    "L90": 29.3,
+    "LAFmax": 60.0,
+    "LCpeak": 72.0,
+    "background_B": 29.3,
+    "events": 7,
+    "events_22_06": 7
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N14",
+   "name": "sensitivity-high-normal-low",
+   "status": "sourced",
+   "note": "Disturbances 7.5, 13 and 18.5 dB above the base: High (6) finds 9, Normal (10) 6, Low (15) 3.",
+   "csv": "nights/N14_sensitivity-high-normal-low.csv",
+   "blocks": "nights/N14_sensitivity-high-normal-low.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1793138400000,
+   "start_local": "2026-10-27T23:00:00+01:00",
+   "end_local": "2026-10-28T07:00:00+01:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "voices",
+     "start_s": 3000,
+     "end_s": 3003,
+     "note": "steady LAeq 33.5, LAFmax 37.5, LC-LA 3.0"
+    },
+    {
+     "kind": "voices",
+     "start_s": 4000,
+     "end_s": 4003,
+     "note": "steady LAeq 39.0, LAFmax 43.0, LC-LA 3.0"
+    },
+    {
+     "kind": "voices",
+     "start_s": 5000,
+     "end_s": 5003,
+     "note": "steady LAeq 44.5, LAFmax 48.5, LC-LA 3.0"
+    },
+    {
+     "kind": "voices",
+     "start_s": 9000,
+     "end_s": 9003,
+     "note": "steady LAeq 33.5, LAFmax 37.5, LC-LA 3.0"
+    },
+    {
+     "kind": "voices",
+     "start_s": 10000,
+     "end_s": 10003,
+     "note": "steady LAeq 39.0, LAFmax 43.0, LC-LA 3.0"
+    },
+    {
+     "kind": "voices",
+     "start_s": 11000,
+     "end_s": 11003,
+     "note": "steady LAeq 44.5, LAFmax 48.5, LC-LA 3.0"
+    },
+    {
+     "kind": "voices",
+     "start_s": 15000,
+     "end_s": 15003,
+     "note": "steady LAeq 33.5, LAFmax 37.5, LC-LA 3.0"
+    },
+    {
+     "kind": "voices",
+     "start_s": 16000,
+     "end_s": 16003,
+     "note": "steady LAeq 39.0, LAFmax 43.0, LC-LA 3.0"
+    },
+    {
+     "kind": "voices",
+     "start_s": 17000,
+     "end_s": 17003,
+     "note": "steady LAeq 44.5, LAFmax 48.5, LC-LA 3.0"
+    }
+   ],
+   "expected_events": {
+    "6": [
+     {
+      "start_s": 3000,
+      "end_s": 3003,
+      "start_ms": 1793141400000,
+      "end_ms": 1793141403000,
+      "start_local": "2026-10-27T23:50:00+01:00",
+      "end_local": "2026-10-27T23:50:03+01:00",
+      "duration_s": 3,
+      "LAeq": 33.5,
+      "LCeq": 36.5,
+      "LAFmax": 37.5,
+      "LCpeak": 49.5,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 4000,
+      "end_s": 4003,
+      "start_ms": 1793142400000,
+      "end_ms": 1793142403000,
+      "start_local": "2026-10-28T00:06:40+01:00",
+      "end_local": "2026-10-28T00:06:43+01:00",
+      "duration_s": 3,
+      "LAeq": 39.0,
+      "LCeq": 42.0,
+      "LAFmax": 43.0,
+      "LCpeak": 55.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 5000,
+      "end_s": 5003,
+      "start_ms": 1793143400000,
+      "end_ms": 1793143403000,
+      "start_local": "2026-10-28T00:23:20+01:00",
+      "end_local": "2026-10-28T00:23:23+01:00",
+      "duration_s": 3,
+      "LAeq": 44.5,
+      "LCeq": 47.5,
+      "LAFmax": 48.5,
+      "LCpeak": 60.5,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 9000,
+      "end_s": 9003,
+      "start_ms": 1793147400000,
+      "end_ms": 1793147403000,
+      "start_local": "2026-10-28T01:30:00+01:00",
+      "end_local": "2026-10-28T01:30:03+01:00",
+      "duration_s": 3,
+      "LAeq": 33.5,
+      "LCeq": 36.5,
+      "LAFmax": 37.5,
+      "LCpeak": 49.5,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 10000,
+      "end_s": 10003,
+      "start_ms": 1793148400000,
+      "end_ms": 1793148403000,
+      "start_local": "2026-10-28T01:46:40+01:00",
+      "end_local": "2026-10-28T01:46:43+01:00",
+      "duration_s": 3,
+      "LAeq": 39.0,
+      "LCeq": 42.0,
+      "LAFmax": 43.0,
+      "LCpeak": 55.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 11000,
+      "end_s": 11003,
+      "start_ms": 1793149400000,
+      "end_ms": 1793149403000,
+      "start_local": "2026-10-28T02:03:20+01:00",
+      "end_local": "2026-10-28T02:03:23+01:00",
+      "duration_s": 3,
+      "LAeq": 44.5,
+      "LCeq": 47.5,
+      "LAFmax": 48.5,
+      "LCpeak": 60.5,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 15000,
+      "end_s": 15003,
+      "start_ms": 1793153400000,
+      "end_ms": 1793153403000,
+      "start_local": "2026-10-28T03:10:00+01:00",
+      "end_local": "2026-10-28T03:10:03+01:00",
+      "duration_s": 3,
+      "LAeq": 33.5,
+      "LCeq": 36.5,
+      "LAFmax": 37.5,
+      "LCpeak": 49.5,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 16000,
+      "end_s": 16003,
+      "start_ms": 1793154400000,
+      "end_ms": 1793154403000,
+      "start_local": "2026-10-28T03:26:40+01:00",
+      "end_local": "2026-10-28T03:26:43+01:00",
+      "duration_s": 3,
+      "LAeq": 39.0,
+      "LCeq": 42.0,
+      "LAFmax": 43.0,
+      "LCpeak": 55.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 17000,
+      "end_s": 17003,
+      "start_ms": 1793155400000,
+      "end_ms": 1793155403000,
+      "start_local": "2026-10-28T03:43:20+01:00",
+      "end_local": "2026-10-28T03:43:23+01:00",
+      "duration_s": 3,
+      "LAeq": 44.5,
+      "LCeq": 47.5,
+      "LAFmax": 48.5,
+      "LCpeak": 60.5,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     }
+    ],
+    "10": [
+     {
+      "start_s": 4000,
+      "end_s": 4003,
+      "start_ms": 1793142400000,
+      "end_ms": 1793142403000,
+      "start_local": "2026-10-28T00:06:40+01:00",
+      "end_local": "2026-10-28T00:06:43+01:00",
+      "duration_s": 3,
+      "LAeq": 39.0,
+      "LCeq": 42.0,
+      "LAFmax": 43.0,
+      "LCpeak": 55.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 5000,
+      "end_s": 5003,
+      "start_ms": 1793143400000,
+      "end_ms": 1793143403000,
+      "start_local": "2026-10-28T00:23:20+01:00",
+      "end_local": "2026-10-28T00:23:23+01:00",
+      "duration_s": 3,
+      "LAeq": 44.5,
+      "LCeq": 47.5,
+      "LAFmax": 48.5,
+      "LCpeak": 60.5,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 10000,
+      "end_s": 10003,
+      "start_ms": 1793148400000,
+      "end_ms": 1793148403000,
+      "start_local": "2026-10-28T01:46:40+01:00",
+      "end_local": "2026-10-28T01:46:43+01:00",
+      "duration_s": 3,
+      "LAeq": 39.0,
+      "LCeq": 42.0,
+      "LAFmax": 43.0,
+      "LCpeak": 55.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 11000,
+      "end_s": 11003,
+      "start_ms": 1793149400000,
+      "end_ms": 1793149403000,
+      "start_local": "2026-10-28T02:03:20+01:00",
+      "end_local": "2026-10-28T02:03:23+01:00",
+      "duration_s": 3,
+      "LAeq": 44.5,
+      "LCeq": 47.5,
+      "LAFmax": 48.5,
+      "LCpeak": 60.5,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 16000,
+      "end_s": 16003,
+      "start_ms": 1793154400000,
+      "end_ms": 1793154403000,
+      "start_local": "2026-10-28T03:26:40+01:00",
+      "end_local": "2026-10-28T03:26:43+01:00",
+      "duration_s": 3,
+      "LAeq": 39.0,
+      "LCeq": 42.0,
+      "LAFmax": 43.0,
+      "LCpeak": 55.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 17000,
+      "end_s": 17003,
+      "start_ms": 1793155400000,
+      "end_ms": 1793155403000,
+      "start_local": "2026-10-28T03:43:20+01:00",
+      "end_local": "2026-10-28T03:43:23+01:00",
+      "duration_s": 3,
+      "LAeq": 44.5,
+      "LCeq": 47.5,
+      "LAFmax": 48.5,
+      "LCpeak": 60.5,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     }
+    ],
+    "15": [
+     {
+      "start_s": 5000,
+      "end_s": 5003,
+      "start_ms": 1793143400000,
+      "end_ms": 1793143403000,
+      "start_local": "2026-10-28T00:23:20+01:00",
+      "end_local": "2026-10-28T00:23:23+01:00",
+      "duration_s": 3,
+      "LAeq": 44.5,
+      "LCeq": 47.5,
+      "LAFmax": 48.5,
+      "LCpeak": 60.5,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 11000,
+      "end_s": 11003,
+      "start_ms": 1793149400000,
+      "end_ms": 1793149403000,
+      "start_local": "2026-10-28T02:03:20+01:00",
+      "end_local": "2026-10-28T02:03:23+01:00",
+      "duration_s": 3,
+      "LAeq": 44.5,
+      "LCeq": 47.5,
+      "LAFmax": 48.5,
+      "LCpeak": 60.5,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 17000,
+      "end_s": 17003,
+      "start_ms": 1793155400000,
+      "end_ms": 1793155403000,
+      "start_local": "2026-10-28T03:43:20+01:00",
+      "end_local": "2026-10-28T03:43:23+01:00",
+      "duration_s": 3,
+      "LAeq": 44.5,
+      "LCeq": 47.5,
+      "LAFmax": 48.5,
+      "LCpeak": 60.5,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 30.076,
+    "L10": 30.7,
+    "L50": 30.0,
+    "L90": 29.3,
+    "LAFmax": 48.5,
+    "LCpeak": 60.5,
+    "background_B": 29.3,
+    "events": 6,
+    "events_22_06": 6
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N15",
+   "name": "overload-partial",
+   "status": "sourced",
+   "note": "Overloaded bang seconds (flag 1, values are lower bounds) and partial seconds (< 90 % samples) inside and outside events: partial seconds stay valid; overload_s counts flagged seconds.",
+   "csv": "nights/N15_overload-partial.csv",
+   "blocks": "nights/N15_overload-partial.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1793223900000,
+   "start_local": "2026-10-28T22:45:00+01:00",
+   "end_local": "2026-10-29T06:45:00+01:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "bang (overload)",
+     "start_s": 5000,
+     "end_s": 5002,
+     "note": "microphone limit reached: >= values"
+    },
+    {
+     "kind": "voices",
+     "start_s": 9000,
+     "end_s": 9005,
+     "note": "steady LAeq 48.0, LAFmax 51.0, LC-LA 5.0"
+    },
+    {
+     "kind": "bang (overload)",
+     "start_s": 12000,
+     "end_s": 12001,
+     "note": "single overloaded second"
+    }
+   ],
+   "expected_events": {
+    "10": [
+     {
+      "start_s": 5000,
+      "end_s": 5002,
+      "start_ms": 1793228900000,
+      "end_ms": 1793228902000,
+      "start_local": "2026-10-29T00:08:20+01:00",
+      "end_local": "2026-10-29T00:08:22+01:00",
+      "duration_s": 2,
+      "LAeq": 89.1141,
+      "LCeq": 92.1141,
+      "LAFmax": 97.0,
+      "LCpeak": 115.0,
+      "lf_hint": 0,
+      "overload_s": 2,
+      "loud_s": 2,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 9000,
+      "end_s": 9005,
+      "start_ms": 1793232900000,
+      "end_ms": 1793232905000,
+      "start_local": "2026-10-29T01:15:00+01:00",
+      "end_local": "2026-10-29T01:15:05+01:00",
+      "duration_s": 5,
+      "LAeq": 48.0,
+      "LCeq": 53.0,
+      "LAFmax": 51.0,
+      "LCpeak": 65.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 5,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 12000,
+      "end_s": 12001,
+      "start_ms": 1793235900000,
+      "end_ms": 1793235901000,
+      "start_local": "2026-10-29T02:05:00+01:00",
+      "end_local": "2026-10-29T02:05:01+01:00",
+      "duration_s": 1,
+      "LAeq": 92.0,
+      "LCeq": 95.0,
+      "LAFmax": 97.5,
+      "LCpeak": 116.0,
+      "lf_hint": 0,
+      "overload_s": 1,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 50.5184,
+    "L10": 30.7,
+    "L50": 30.0,
+    "L90": 29.3,
+    "LAFmax": 97.5,
+    "LCpeak": 116.0,
+    "background_B": 29.3,
+    "events": 3,
+    "events_22_06": 3
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N16",
+   "name": "session-start-and-end-edges",
+   "status": "sourced",
+   "note": "Loud 50-55 s is in the warm-up minute (no B yet); 60-62 s is the first possible event; an event may start at n-11 and continue into the last 10 s.",
+   "csv": "nights/N16_session-start-and-end-edges.csv",
+   "blocks": "nights/N16_session-start-and-end-edges.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1793311200000,
+   "start_local": "2026-10-29T23:00:00+01:00",
+   "end_local": "2026-10-30T07:00:00+01:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "warm-up",
+     "start_s": 50,
+     "end_s": 56,
+     "note": "B needs 60 usable seconds: NOT an event"
+    },
+    {
+     "kind": "voices",
+     "start_s": 60,
+     "end_s": 63,
+     "note": "steady LAeq 50.0, LAFmax 60.0, LC-LA 4.0"
+    },
+    {
+     "kind": "door",
+     "start_s": 28600,
+     "end_s": 28601,
+     "note": "steady LAeq 50.0, LAFmax 60.0, LC-LA 4.0"
+    },
+    {
+     "kind": "voices",
+     "start_s": 28789,
+     "end_s": 28790,
+     "note": "steady LAeq 50.0, LAFmax 60.0, LC-LA 4.0"
+    },
+    {
+     "kind": "voices",
+     "start_s": 28795,
+     "end_s": 28796,
+     "note": "steady LAeq 50.0, LAFmax 60.0, LC-LA 4.0"
+    }
+   ],
+   "expected_events": {
+    "10": [
+     {
+      "start_s": 60,
+      "end_s": 63,
+      "start_ms": 1793311260000,
+      "end_ms": 1793311263000,
+      "start_local": "2026-10-29T23:01:00+01:00",
+      "end_local": "2026-10-29T23:01:03+01:00",
+      "duration_s": 3,
+      "LAeq": 50.0,
+      "LCeq": 54.0,
+      "LAFmax": 60.0,
+      "LCpeak": 72.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 3,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 28600,
+      "end_s": 28601,
+      "start_ms": 1793339800000,
+      "end_ms": 1793339801000,
+      "start_local": "2026-10-30T06:56:40+01:00",
+      "end_local": "2026-10-30T06:56:41+01:00",
+      "duration_s": 1,
+      "LAeq": 50.0,
+      "LCeq": 54.0,
+      "LAFmax": 60.0,
+      "LCpeak": 72.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 28789,
+      "end_s": 28796,
+      "start_ms": 1793339989000,
+      "end_ms": 1793339996000,
+      "start_local": "2026-10-30T06:59:49+01:00",
+      "end_local": "2026-10-30T06:59:56+01:00",
+      "duration_s": 7,
+      "LAeq": 44.6695,
+      "LCeq": 48.6809,
+      "LAFmax": 60.0,
+      "LCpeak": 72.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 2,
+      "merged_quiet_runs": [
+       5
+      ],
+      "merge_decision": "merged across quiet runs of 5 s (each <= 10)"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 30.3797,
+    "L10": 30.7,
+    "L50": 30.0,
+    "L90": 29.3,
+    "LAFmax": 60.0,
+    "LCpeak": 72.0,
+    "background_B": 29.3,
+    "events": 3,
+    "events_22_06": 1
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N17",
+   "name": "background-step-adapts",
+   "status": "sourced",
+   "note": "Heating switches on at 02:00: background 30 -> 36 dB (+6, below Normal). Afterwards a bang of 44.5 is NOT an event (B = 35.5..36), 47.5 is; before the step 44.5 is.",
+   "csv": "nights/N17_background-step-adapts.csv",
+   "blocks": "nights/N17_background-step-adapts.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1793397600000,
+   "start_local": "2026-10-30T23:00:00+01:00",
+   "end_local": "2026-10-31T07:00:00+01:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "door",
+     "start_s": 9000,
+     "end_s": 9001,
+     "note": "impulsive, LAFmax 44.5"
+    },
+    {
+     "kind": "door",
+     "start_s": 12000,
+     "end_s": 12001,
+     "note": "impulsive, LAFmax 47.5"
+    },
+    {
+     "kind": "bang (below adapted threshold)",
+     "start_s": 12600,
+     "end_s": 12601,
+     "note": "LAFmax 44.5 < B + 10 after adaptation: NOT an event"
+    },
+    {
+     "kind": "door",
+     "start_s": 13200,
+     "end_s": 13201,
+     "note": "impulsive, LAFmax 47.5"
+    },
+    {
+     "kind": "bang (below adapted threshold)",
+     "start_s": 14000,
+     "end_s": 14001,
+     "note": "LAFmax 44.5 < B + 10 after adaptation: NOT an event"
+    }
+   ],
+   "expected_events": {
+    "10": [
+     {
+      "start_s": 9000,
+      "end_s": 9001,
+      "start_ms": 1793406600000,
+      "end_ms": 1793406601000,
+      "start_local": "2026-10-31T01:30:00+01:00",
+      "end_local": "2026-10-31T01:30:01+01:00",
+      "duration_s": 1,
+      "LAeq": 36.5,
+      "LCeq": 39.5,
+      "LAFmax": 44.5,
+      "LCpeak": 58.5,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 12000,
+      "end_s": 12001,
+      "start_ms": 1793409600000,
+      "end_ms": 1793409601000,
+      "start_local": "2026-10-31T02:20:00+01:00",
+      "end_local": "2026-10-31T02:20:01+01:00",
+      "duration_s": 1,
+      "LAeq": 39.5,
+      "LCeq": 42.5,
+      "LAFmax": 47.5,
+      "LCpeak": 61.5,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 13200,
+      "end_s": 13201,
+      "start_ms": 1793410800000,
+      "end_ms": 1793410801000,
+      "start_local": "2026-10-31T02:40:00+01:00",
+      "end_local": "2026-10-31T02:40:01+01:00",
+      "duration_s": 1,
+      "LAeq": 39.5,
+      "LCeq": 42.5,
+      "LAFmax": 47.5,
+      "LCpeak": 61.5,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 34.5818,
+    "L10": 36.4,
+    "L50": 35.7,
+    "L90": 29.7,
+    "LAFmax": 47.5,
+    "LCpeak": 61.5,
+    "background_B": 29.7,
+    "events": 3,
+    "events_22_06": 3
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N18",
+   "name": "random-mix",
+   "status": "sourced",
+   "note": "Slowly varying background (29..30 dB) with 14 random disturbances of all kinds, >= 700 s apart.",
+   "csv": "nights/N18_random-mix.csv",
+   "blocks": "nights/N18_random-mix.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1793484000000,
+   "start_local": "2026-10-31T23:00:00+01:00",
+   "end_local": "2026-11-01T07:00:00+01:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "voices",
+     "start_s": 900,
+     "end_s": 1117,
+     "note": "steady LAeq 48.1, LAFmax 51.8, LC-LA 8.5"
+    },
+    {
+     "kind": "dog",
+     "start_s": 2650,
+     "end_s": 2679,
+     "note": "barks every 4 s"
+    },
+    {
+     "kind": "dog",
+     "start_s": 4508,
+     "end_s": 4533,
+     "note": "barks every 4 s"
+    },
+    {
+     "kind": "footsteps",
+     "start_s": 6200,
+     "end_s": 6321,
+     "note": "16 impacts every 8 s, LAFmax 46.2"
+    },
+    {
+     "kind": "door",
+     "start_s": 8227,
+     "end_s": 8229,
+     "note": "impulsive, LAFmax 72.7"
+    },
+    {
+     "kind": "appliance",
+     "start_s": 9939,
+     "end_s": 10314,
+     "note": "steady LAeq 42.2, LAFmax 43.2, LC-LA 9.5"
+    },
+    {
+     "kind": "dog",
+     "start_s": 11995,
+     "end_s": 12020,
+     "note": "barks every 4 s"
+    },
+    {
+     "kind": "door",
+     "start_s": 13969,
+     "end_s": 13970,
+     "note": "impulsive, LAFmax 71.6"
+    },
+    {
+     "kind": "dog",
+     "start_s": 15275,
+     "end_s": 15300,
+     "note": "barks every 4 s"
+    },
+    {
+     "kind": "appliance",
+     "start_s": 16981,
+     "end_s": 17146,
+     "note": "steady LAeq 44.5, LAFmax 45.5, LC-LA 10.9"
+    },
+    {
+     "kind": "footsteps",
+     "start_s": 18751,
+     "end_s": 18770,
+     "note": "7 impacts every 3 s, LAFmax 50.3"
+    },
+    {
+     "kind": "appliance",
+     "start_s": 20944,
+     "end_s": 21123,
+     "note": "steady LAeq 44.7, LAFmax 45.7, LC-LA 6.1"
+    },
+    {
+     "kind": "voices",
+     "start_s": 22622,
+     "end_s": 22691,
+     "note": "steady LAeq 44.7, LAFmax 46.8, LC-LA 5.0"
+    },
+    {
+     "kind": "dog",
+     "start_s": 24070,
+     "end_s": 24083,
+     "note": "barks every 4 s"
+    },
+    {
+     "kind": "appliance",
+     "start_s": 25737,
+     "end_s": 25908,
+     "note": "steady LAeq 42.9, LAFmax 43.9, LC-LA 9.9"
+    }
+   ],
+   "expected_events": {
+    "10": [
+     {
+      "start_s": 900,
+      "end_s": 1117,
+      "start_ms": 1793484900000,
+      "end_ms": 1793485117000,
+      "start_local": "2026-10-31T23:15:00+01:00",
+      "end_local": "2026-10-31T23:18:37+01:00",
+      "duration_s": 217,
+      "LAeq": 48.1,
+      "LCeq": 56.6,
+      "LAFmax": 51.8,
+      "LCpeak": 68.6,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 217,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 2650,
+      "end_s": 2679,
+      "start_ms": 1793486650000,
+      "end_ms": 1793486679000,
+      "start_local": "2026-10-31T23:44:10+01:00",
+      "end_local": "2026-10-31T23:44:39+01:00",
+      "duration_s": 29,
+      "LAeq": 37.0167,
+      "LCeq": 40.276,
+      "LAFmax": 58.7,
+      "LCpeak": 70.7,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 8,
+      "merged_quiet_runs": [
+       3,
+       3,
+       3,
+       3,
+       3,
+       3,
+       3
+      ],
+      "merge_decision": "merged across quiet runs of 3, 3, 3, 3, 3, 3, 3 s (each <= 10)"
+     },
+     {
+      "start_s": 4508,
+      "end_s": 4533,
+      "start_ms": 1793488508000,
+      "end_ms": 1793488533000,
+      "start_local": "2026-11-01T00:15:08+01:00",
+      "end_local": "2026-11-01T00:15:33+01:00",
+      "duration_s": 25,
+      "LAeq": 37.0991,
+      "LCeq": 40.3679,
+      "LAFmax": 59.8,
+      "LCpeak": 71.8,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 7,
+      "merged_quiet_runs": [
+       3,
+       3,
+       3,
+       3,
+       3,
+       3
+      ],
+      "merge_decision": "merged across quiet runs of 3, 3, 3, 3, 3, 3 s (each <= 10)"
+     },
+     {
+      "start_s": 6200,
+      "end_s": 6321,
+      "start_ms": 1793490200000,
+      "end_ms": 1793490321000,
+      "start_local": "2026-11-01T00:43:20+01:00",
+      "end_local": "2026-11-01T00:45:21+01:00",
+      "duration_s": 121,
+      "LAeq": 30.7879,
+      "LCeq": 39.0104,
+      "LAFmax": 46.2,
+      "LCpeak": 58.2,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 16,
+      "merged_quiet_runs": [
+       7,
+       7,
+       7,
+       7,
+       7,
+       7,
+       7,
+       7,
+       7,
+       7,
+       7,
+       7,
+       7,
+       7,
+       7
+      ],
+      "merge_decision": "merged across quiet runs of 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7 s (each <= 10)"
+     },
+     {
+      "start_s": 8227,
+      "end_s": 8229,
+      "start_ms": 1793492227000,
+      "end_ms": 1793492229000,
+      "start_local": "2026-11-01T01:17:07+01:00",
+      "end_local": "2026-11-01T01:17:09+01:00",
+      "duration_s": 2,
+      "LAeq": 64.7,
+      "LCeq": 67.7,
+      "LAFmax": 72.7,
+      "LCpeak": 86.7,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 2,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 9939,
+      "end_s": 10314,
+      "start_ms": 1793493939000,
+      "end_ms": 1793494314000,
+      "start_local": "2026-11-01T01:45:39+01:00",
+      "end_local": "2026-11-01T01:51:54+01:00",
+      "duration_s": 375,
+      "LAeq": 42.2,
+      "LCeq": 51.7,
+      "LAFmax": 43.2,
+      "LCpeak": 63.7,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 375,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 11995,
+      "end_s": 12020,
+      "start_ms": 1793495995000,
+      "end_ms": 1793496020000,
+      "start_local": "2026-11-01T02:19:55+01:00",
+      "end_local": "2026-11-01T02:20:20+01:00",
+      "duration_s": 25,
+      "LAeq": 37.0568,
+      "LCeq": 40.2958,
+      "LAFmax": 57.2,
+      "LCpeak": 69.2,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 7,
+      "merged_quiet_runs": [
+       3,
+       3,
+       3,
+       3,
+       3,
+       3
+      ],
+      "merge_decision": "merged across quiet runs of 3, 3, 3, 3, 3, 3 s (each <= 10)"
+     },
+     {
+      "start_s": 13969,
+      "end_s": 13970,
+      "start_ms": 1793497969000,
+      "end_ms": 1793497970000,
+      "start_local": "2026-11-01T02:52:49+01:00",
+      "end_local": "2026-11-01T02:52:50+01:00",
+      "duration_s": 1,
+      "LAeq": 63.6,
+      "LCeq": 66.6,
+      "LAFmax": 71.6,
+      "LCpeak": 85.6,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 1,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 15275,
+      "end_s": 15300,
+      "start_ms": 1793499275000,
+      "end_ms": 1793499300000,
+      "start_local": "2026-11-01T03:14:35+01:00",
+      "end_local": "2026-11-01T03:15:00+01:00",
+      "duration_s": 25,
+      "LAeq": 37.0,
+      "LCeq": 40.2569,
+      "LAFmax": 59.2,
+      "LCpeak": 71.2,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 7,
+      "merged_quiet_runs": [
+       3,
+       3,
+       3,
+       3,
+       3,
+       3
+      ],
+      "merge_decision": "merged across quiet runs of 3, 3, 3, 3, 3, 3 s (each <= 10)"
+     },
+     {
+      "start_s": 16981,
+      "end_s": 17146,
+      "start_ms": 1793500981000,
+      "end_ms": 1793501146000,
+      "start_local": "2026-11-01T03:43:01+01:00",
+      "end_local": "2026-11-01T03:45:46+01:00",
+      "duration_s": 165,
+      "LAeq": 44.5,
+      "LCeq": 55.4,
+      "LAFmax": 45.5,
+      "LCpeak": 67.4,
+      "lf_hint": 1,
+      "overload_s": 0,
+      "loud_s": 165,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 18751,
+      "end_s": 18770,
+      "start_ms": 1793502751000,
+      "end_ms": 1793502770000,
+      "start_local": "2026-11-01T04:12:31+01:00",
+      "end_local": "2026-11-01T04:12:50+01:00",
+      "duration_s": 19,
+      "LAeq": 34.6021,
+      "LCeq": 46.0793,
+      "LAFmax": 50.3,
+      "LCpeak": 62.3,
+      "lf_hint": 1,
+      "overload_s": 0,
+      "loud_s": 7,
+      "merged_quiet_runs": [
+       2,
+       2,
+       2,
+       2,
+       2,
+       2
+      ],
+      "merge_decision": "merged across quiet runs of 2, 2, 2, 2, 2, 2 s (each <= 10)"
+     },
+     {
+      "start_s": 20944,
+      "end_s": 21123,
+      "start_ms": 1793504944000,
+      "end_ms": 1793505123000,
+      "start_local": "2026-11-01T04:49:04+01:00",
+      "end_local": "2026-11-01T04:52:03+01:00",
+      "duration_s": 179,
+      "LAeq": 44.7,
+      "LCeq": 50.8,
+      "LAFmax": 45.7,
+      "LCpeak": 62.8,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 179,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 22622,
+      "end_s": 22691,
+      "start_ms": 1793506622000,
+      "end_ms": 1793506691000,
+      "start_local": "2026-11-01T05:17:02+01:00",
+      "end_local": "2026-11-01T05:18:11+01:00",
+      "duration_s": 69,
+      "LAeq": 44.7,
+      "LCeq": 49.7,
+      "LAFmax": 46.8,
+      "LCpeak": 61.7,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 69,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 24070,
+      "end_s": 24083,
+      "start_ms": 1793508070000,
+      "end_ms": 1793508083000,
+      "start_local": "2026-11-01T05:41:10+01:00",
+      "end_local": "2026-11-01T05:41:23+01:00",
+      "duration_s": 13,
+      "LAeq": 37.2695,
+      "LCeq": 40.4399,
+      "LAFmax": 59.7,
+      "LCpeak": 71.7,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 4,
+      "merged_quiet_runs": [
+       3,
+       3,
+       3
+      ],
+      "merge_decision": "merged across quiet runs of 3, 3, 3 s (each <= 10)"
+     },
+     {
+      "start_s": 25737,
+      "end_s": 25908,
+      "start_ms": 1793509737000,
+      "end_ms": 1793509908000,
+      "start_local": "2026-11-01T06:08:57+01:00",
+      "end_local": "2026-11-01T06:11:48+01:00",
+      "duration_s": 171,
+      "LAeq": 42.9,
+      "LCeq": 52.8,
+      "LAFmax": 43.9,
+      "LCpeak": 64.8,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 171,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 33.6447,
+    "L10": 30.3,
+    "L50": 29.1,
+    "L90": 27.9,
+    "LAFmax": 72.7,
+    "LCpeak": 86.7,
+    "background_B": 27.9,
+    "events": 15,
+    "events_22_06": 14
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N19",
+   "name": "event-until-session-end",
+   "status": "sourced",
+   "note": "Music from n-30 s until the log is stopped: end = session end (last loud second + 1). A 30-min app-killed-style gap earlier reduces the valid duration.",
+   "csv": "nights/N19_event-until-session-end.csv",
+   "blocks": "nights/N19_event-until-session-end.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1793572200000,
+   "start_local": "2026-11-01T23:30:00+01:00",
+   "end_local": "2026-11-02T07:30:00+01:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [
+    {
+     "start_s": 12000,
+     "end_s": 13800,
+     "reason": "app-killed",
+     "start_ms": 1793584200000,
+     "end_ms": 1793586000000
+    }
+   ],
+   "planted": [
+    {
+     "kind": "voices",
+     "start_s": 14100,
+     "end_s": 14110,
+     "note": "steady LAeq 48.0, LAFmax 51.0, LC-LA 6.0"
+    },
+    {
+     "kind": "music",
+     "start_s": 28770,
+     "end_s": 28800,
+     "note": "steady LAeq 48.0, LAFmax 51.0, LC-LA 6.0"
+    }
+   ],
+   "expected_events": {
+    "10": [
+     {
+      "start_s": 14100,
+      "end_s": 14110,
+      "start_ms": 1793586300000,
+      "end_ms": 1793586310000,
+      "start_local": "2026-11-02T03:25:00+01:00",
+      "end_local": "2026-11-02T03:25:10+01:00",
+      "duration_s": 10,
+      "LAeq": 48.0,
+      "LCeq": 54.0,
+      "LAFmax": 51.0,
+      "LCpeak": 66.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 10,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     },
+     {
+      "start_s": 28770,
+      "end_s": 28800,
+      "start_ms": 1793600970000,
+      "end_ms": 1793601000000,
+      "start_local": "2026-11-02T07:29:30+01:00",
+      "end_local": "2026-11-02T07:30:00+01:00",
+      "duration_s": 30,
+      "LAeq": 48.0,
+      "LCeq": 54.0,
+      "LAFmax": 51.0,
+      "LCpeak": 66.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 30,
+      "merged_quiet_runs": [],
+      "merge_decision": "one continuous loud run"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 27000,
+    "gap_s": 1800,
+    "LAeq": 30.4054,
+    "L10": 30.7,
+    "L50": 30.0,
+    "L90": 29.3,
+    "LAFmax": 51.0,
+    "LCpeak": 66.0,
+    "background_B": 29.3,
+    "events": 2,
+    "events_22_06": 1
+   },
+   "variant_results": {}
+  },
+  {
+   "id": "N20",
+   "name": "long-chain-every-10s",
+   "status": "UNCONFIRMED",
+   "note": "A knock every 10 s (9 quiet between) for 15 min. Merges into one event while B is defined; whether the 9 quiet seconds inside the event count as \"inside an event\" for B decides if it ends at ~540 s.",
+   "csv": "nights/N20_long-chain-every-10s.csv",
+   "blocks": "nights/N20_long-chain-every-10s.blocks.json",
+   "tz": "Europe/Berlin",
+   "start_utc_ms": 1793656800000,
+   "start_local": "2026-11-02T23:00:00+01:00",
+   "end_local": "2026-11-03T07:00:00+01:00",
+   "n_seconds": 28800,
+   "sensitivity_db": 10,
+   "floor_db": 35.0,
+   "gaps": [],
+   "planted": [
+    {
+     "kind": "knocking",
+     "start_s": 7200,
+     "end_s": 8091,
+     "note": "90 knocks, 10-s period"
+    }
+   ],
+   "expected_events": {
+    "10": [
+     {
+      "start_s": 7200,
+      "end_s": 7741,
+      "start_ms": 1793664000000,
+      "end_ms": 1793664541000,
+      "start_local": "2026-11-03T01:00:00+01:00",
+      "end_local": "2026-11-03T01:09:01+01:00",
+      "duration_s": 541,
+      "LAeq": 31.856,
+      "LCeq": 35.8571,
+      "LAFmax": 48.0,
+      "LCpeak": 60.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 55,
+      "merged_quiet_runs": [
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9
+      ],
+      "merge_decision": "merged across quiet runs of 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9 s (each <= 10)"
+     },
+     {
+      "start_s": 7810,
+      "end_s": 8091,
+      "start_ms": 1793664610000,
+      "end_ms": 1793664891000,
+      "start_local": "2026-11-03T01:10:10+01:00",
+      "end_local": "2026-11-03T01:14:51+01:00",
+      "duration_s": 281,
+      "LAeq": 31.9173,
+      "LCeq": 35.9003,
+      "LAFmax": 48.0,
+      "LCpeak": 60.0,
+      "lf_hint": 0,
+      "overload_s": 0,
+      "loud_s": 29,
+      "merged_quiet_runs": [
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9,
+       9
+      ],
+      "merge_decision": "merged across quiet runs of 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9 s (each <= 10)"
+     }
+    ]
+   },
+   "expected_summary": {
+    "valid_s": 28800,
+    "gap_s": 0,
+    "LAeq": 30.0955,
+    "L10": 30.7,
+    "L50": 30.0,
+    "L90": 29.3,
+    "LAFmax": 48.0,
+    "LCpeak": 60.0,
+    "background_B": 29.3,
+    "events": 2,
+    "events_22_06": 2
+   },
+   "variant_results": {
+    "prev/span/hold": [
+     [
+      7200,
+      8091
+     ]
+    ],
+    "prev/loud/none": [
+     [
+      7200,
+      8091
+     ]
+    ],
+    "prev/loud/hold": [
+     [
+      7200,
+      8091
+     ]
+    ],
+    "incl/span/none": [
+     [
+      7200,
+      7741
+     ],
+     [
+      7800,
+      8091
+     ]
+    ],
+    "incl/span/hold": [
+     [
+      7200,
+      8091
+     ]
+    ],
+    "incl/loud/none": [
+     [
+      7200,
+      8091
+     ]
+    ],
+    "incl/loud/hold": [
+     [
+      7200,
+      8091
+     ]
+    ]
+   }
+  }
+ ]
+}

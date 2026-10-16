@@ -1,0 +1,37 @@
+appId: ${APP_ID}
+name: Mic self-test - E1 94 dB through the native module and injected blind fixtures (P3)
+# Dev builds only (synthetic source + injectPcm, D24). Proves native capture -> ring -> JS -> engine on this
+# simulator/emulator: E1 (1 kHz at RMS 520/32768) reads 94.0 +/- 0.1 dB (A8) and the blind-set PCM comes back
+# sample-exact. The numbers are logged as "SELFTEST {...}" lines in Metro's output.
+tags:
+  - p3
+---
+- launchApp:
+    permissions:
+      all: allow
+# the bundle must be loaded before the link (Android dev client)
+- extendedWaitUntil:
+    visible:
+      id: meter-screen
+    timeout: 90000
+- openLink: soundmeter-dev://debug/mic-selftest?run=quick
+- runFlow:
+    when:
+      visible: Open
+    commands:
+      - tapOn: Open
+- extendedWaitUntil:
+    visible:
+      id: selftest-screen
+    timeout: 60000
+- extendedWaitUntil:
+    visible:
+      id: selftest-status
+      text: done
+    timeout: 240000
+- assertVisible:
+    id: selftest-e1
+    text: ".*PASS"
+- assertVisible:
+    id: selftest-inject
+    text: ".*PASS"

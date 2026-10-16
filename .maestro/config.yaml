@@ -1,0 +1,8 @@
+# Flows share one simulator and one database, so run them sequentially in this order (by flow name).
+flows:
+  - "*"
+executionOrder:
+  continueOnFailure: true
+  flowsOrder:
+    - "Smoke - validate form, save item, change theme, restart, data persists"
+    - "Example local notification can be scheduled"

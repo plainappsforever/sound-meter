@@ -1,0 +1,34 @@
+appId: ${APP_ID}
+name: Smoke - placeholder meter, settings theme persists across a restart (P1; not run yet, no device phase)
+tags:
+  - smoke
+---
+- runFlow: subflows/launch.yaml
+- assertVisible:
+    id: calibration-chip
+- tapOn:
+    id: open-settings
+- assertVisible:
+    id: settings-screen
+- tapOn:
+    id: theme-dark
+- assertVisible:
+    id: theme-dark
+    selected: true
+
+# Restart: the theme must still be there
+- stopApp
+- runFlow: subflows/launch.yaml
+- tapOn:
+    id: open-settings
+- assertVisible:
+    id: theme-dark
+    selected: true
+- tapOn:
+    id: open-about
+- assertVisible:
+    id: settings-privacy
+- back
+# Restore the default theme for the next run
+- tapOn:
+    id: theme-system

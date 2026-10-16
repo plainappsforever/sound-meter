@@ -1,0 +1,32 @@
+# Mirrors main and all tags to Codeberg after every push (Codeberg has no pull mirrors for new repos, so GitHub pushes).
+# Off until the repository variable CODEBERG_REPO is set (Settings > Secrets and variables > Actions > Variables).
+#   variable CODEBERG_REPO   e.g. plainapps/print-cost (the empty repo must exist on Codeberg first)
+#   variable CODEBERG_USER   the Codeberg user name that owns the token
+#   secret   CODEBERG_TOKEN  Codeberg access token with repository write scope (Codeberg > Settings > Applications)
+name: mirror-codeberg
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mirror:
+    if: ${{ vars.CODEBERG_REPO != '' }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Push to Codeberg
+        env:
+          TOKEN: ${{ secrets.CODEBERG_TOKEN }}
+          REPO: ${{ vars.CODEBERG_REPO }}
+          CB_USER: ${{ vars.CODEBERG_USER }}
+        run: |
+          git push "https://${CB_USER}:${TOKEN}@codeberg.org/${REPO}.git" "refs/remotes/origin/main:refs/heads/main"
+          git push "https://${CB_USER}:${TOKEN}@codeberg.org/${REPO}.git" --tags

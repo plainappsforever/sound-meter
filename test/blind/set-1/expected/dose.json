@@ -1,0 +1,694 @@
+{
+ "about": "SPEC 7.6 dose cases. NIOSH uses LAeq,1s, OSHA uses LAS per second; seconds < 80.0 add 0; gaps excluded. Te = number of valid seconds.",
+ "cases": [
+  {
+   "id": "D01",
+   "name": "E5-2h100-6h85",
+   "status": "sourced",
+   "note": "SPEC E5",
+   "csv": "dose/D01_E5-2h100-6h85.csv",
+   "start_utc_ms": 1791957600000,
+   "n_seconds": 28800,
+   "valid_s": 28800,
+   "segments": [
+    {
+     "seconds": 7200,
+     "LAeq_1s": 100.0,
+     "LAS": 100.0,
+     "LCpeak": 115.0
+    },
+    {
+     "seconds": 21600,
+     "LAeq_1s": 85.0,
+     "LAS": 85.0,
+     "LCpeak": 100.0
+    }
+   ],
+   "expected": {
+    "niosh_dose_pct": 875.0,
+    "niosh_twa": 94.4201,
+    "niosh_projected_pct": 875.0,
+    "osha_dose_pct": 137.5,
+    "osha_twa": 92.2972,
+    "osha_projected_pct": 137.5,
+    "LAeq_Te": 94.373,
+    "LEX_8h": 94.373,
+    "LCpeak_max": 115.0
+   },
+   "tol": {
+    "niosh_dose_pct": 0.01,
+    "osha_dose_pct": 0.01,
+    "niosh_projected_pct": 0.01,
+    "osha_projected_pct": 0.01
+   },
+   "alternative_if_other_reading": null,
+   "reference_lines": {
+    "EU_LEX8h_dBA": {
+     "lower_action": 80,
+     "upper_action": 85,
+     "limit": 87
+    },
+    "EU_peak_dBC": {
+     "lower_action": 135,
+     "upper_action": 137,
+     "limit": 140
+    },
+    "OSHA_action_level": "85 dBA TWA = 50 % dose",
+    "NIOSH_REL": "85 dBA TWA = 100 %"
+   }
+  },
+  {
+   "id": "D02",
+   "name": "E5-4h88-session4h",
+   "status": "sourced",
+   "note": "SPEC E5 (4 h at 88, session ends after 4 h)",
+   "csv": "dose/D02_E5-4h88-session4h.csv",
+   "start_utc_ms": 1791957600000,
+   "n_seconds": 14400,
+   "valid_s": 14400,
+   "segments": [
+    {
+     "seconds": 14400,
+     "LAeq_1s": 88.0,
+     "LAS": 88.0,
+     "LCpeak": 103.0
+    }
+   ],
+   "expected": {
+    "niosh_dose_pct": 100.0,
+    "niosh_twa": 85.0,
+    "niosh_projected_pct": 200.0,
+    "osha_dose_pct": 37.8929,
+    "osha_twa": 82.9998,
+    "osha_projected_pct": 75.7858,
+    "LAeq_Te": 88.0,
+    "LEX_8h": 84.9897,
+    "LCpeak_max": 103.0
+   },
+   "tol": {
+    "niosh_dose_pct": 0.01,
+    "osha_dose_pct": 0.01,
+    "niosh_projected_pct": 0.01,
+    "osha_projected_pct": 0.01
+   },
+   "alternative_if_other_reading": null,
+   "reference_lines": {
+    "EU_LEX8h_dBA": {
+     "lower_action": 80,
+     "upper_action": 85,
+     "limit": 87
+    },
+    "EU_peak_dBC": {
+     "lower_action": 135,
+     "upper_action": 137,
+     "limit": 140
+    },
+    "OSHA_action_level": "85 dBA TWA = 50 % dose",
+    "NIOSH_REL": "85 dBA TWA = 100 %"
+   }
+  },
+  {
+   "id": "D03",
+   "name": "E5-2h91-projected",
+   "status": "sourced",
+   "note": "SPEC E5 (2 h at 91 -> projected 400 %)",
+   "csv": "dose/D03_E5-2h91-projected.csv",
+   "start_utc_ms": 1791957600000,
+   "n_seconds": 7200,
+   "valid_s": 7200,
+   "segments": [
+    {
+     "seconds": 7200,
+     "LAeq_1s": 91.0,
+     "LAS": 91.0,
+     "LCpeak": 106.0
+    }
+   ],
+   "expected": {
+    "niosh_dose_pct": 100.0,
+    "niosh_twa": 85.0,
+    "niosh_projected_pct": 400.0,
+    "osha_dose_pct": 28.7175,
+    "osha_twa": 80.9998,
+    "osha_projected_pct": 114.8698,
+    "LAeq_Te": 91.0,
+    "LEX_8h": 84.9794,
+    "LCpeak_max": 106.0
+   },
+   "tol": {
+    "niosh_dose_pct": 0.01,
+    "osha_dose_pct": 0.01,
+    "niosh_projected_pct": 0.01,
+    "osha_projected_pct": 0.01
+   },
+   "alternative_if_other_reading": null,
+   "reference_lines": {
+    "EU_LEX8h_dBA": {
+     "lower_action": 80,
+     "upper_action": 85,
+     "limit": 87
+    },
+    "EU_peak_dBC": {
+     "lower_action": 135,
+     "upper_action": 137,
+     "limit": 140
+    },
+    "OSHA_action_level": "85 dBA TWA = 50 % dose",
+    "NIOSH_REL": "85 dBA TWA = 100 %"
+   }
+  },
+  {
+   "id": "D04",
+   "name": "8h82",
+   "status": "sourced",
+   "note": "NIOSH 50 %, OSHA 33 %",
+   "csv": "dose/D04_8h82.csv",
+   "start_utc_ms": 1791957600000,
+   "n_seconds": 28800,
+   "valid_s": 28800,
+   "segments": [
+    {
+     "seconds": 28800,
+     "LAeq_1s": 82.0,
+     "LAS": 82.0,
+     "LCpeak": 97.0
+    }
+   ],
+   "expected": {
+    "niosh_dose_pct": 50.0,
+    "niosh_twa": 81.9897,
+    "niosh_projected_pct": 50.0,
+    "osha_dose_pct": 32.9877,
+    "osha_twa": 81.9998,
+    "osha_projected_pct": 32.9877,
+    "LAeq_Te": 82.0,
+    "LEX_8h": 82.0,
+    "LCpeak_max": 97.0
+   },
+   "tol": {
+    "niosh_dose_pct": 0.01,
+    "osha_dose_pct": 0.01,
+    "niosh_projected_pct": 0.01,
+    "osha_projected_pct": 0.01
+   },
+   "alternative_if_other_reading": null,
+   "reference_lines": {
+    "EU_LEX8h_dBA": {
+     "lower_action": 80,
+     "upper_action": 85,
+     "limit": 87
+    },
+    "EU_peak_dBC": {
+     "lower_action": 135,
+     "upper_action": 137,
+     "limit": 140
+    },
+    "OSHA_action_level": "85 dBA TWA = 50 % dose",
+    "NIOSH_REL": "85 dBA TWA = 100 %"
+   }
+  },
+  {
+   "id": "D05",
+   "name": "8h79.9-below-threshold",
+   "status": "sourced",
+   "note": "below both 80-dB thresholds: dose 0, TWA undefined",
+   "csv": "dose/D05_8h79.9-below-threshold.csv",
+   "start_utc_ms": 1791957600000,
+   "n_seconds": 28800,
+   "valid_s": 28800,
+   "segments": [
+    {
+     "seconds": 28800,
+     "LAeq_1s": 79.9,
+     "LAS": 79.9,
+     "LCpeak": 94.9
+    }
+   ],
+   "expected": {
+    "niosh_dose_pct": 0.0,
+    "niosh_twa": null,
+    "niosh_projected_pct": 0.0,
+    "osha_dose_pct": 0.0,
+    "osha_twa": null,
+    "osha_projected_pct": 0.0,
+    "LAeq_Te": 79.9,
+    "LEX_8h": 79.9,
+    "LCpeak_max": 94.9
+   },
+   "tol": {
+    "niosh_dose_pct": 0.01,
+    "osha_dose_pct": 0.01,
+    "niosh_projected_pct": 0.01,
+    "osha_projected_pct": 0.01
+   },
+   "alternative_if_other_reading": null,
+   "reference_lines": {
+    "EU_LEX8h_dBA": {
+     "lower_action": 80,
+     "upper_action": 85,
+     "limit": 87
+    },
+    "EU_peak_dBC": {
+     "lower_action": 135,
+     "upper_action": 137,
+     "limit": 140
+    },
+    "OSHA_action_level": "85 dBA TWA = 50 % dose",
+    "NIOSH_REL": "85 dBA TWA = 100 %"
+   }
+  },
+  {
+   "id": "D06",
+   "name": "8h80.0-threshold-inclusive",
+   "status": "sourced",
+   "note": "exactly 80.0 is integrated (NIOSH 80-140, OSHA 80-130: inclusive)",
+   "csv": "dose/D06_8h80.0-threshold-inclusive.csv",
+   "start_utc_ms": 1791957600000,
+   "n_seconds": 28800,
+   "valid_s": 28800,
+   "segments": [
+    {
+     "seconds": 28800,
+     "LAeq_1s": 80.0,
+     "LAS": 80.0,
+     "LCpeak": 95.0
+    }
+   ],
+   "expected": {
+    "niosh_dose_pct": 31.498,
+    "niosh_twa": 79.9828,
+    "niosh_projected_pct": 31.498,
+    "osha_dose_pct": 25.0,
+    "osha_twa": 79.9998,
+    "osha_projected_pct": 25.0,
+    "LAeq_Te": 80.0,
+    "LEX_8h": 80.0,
+    "LCpeak_max": 95.0
+   },
+   "tol": {
+    "niosh_dose_pct": 0.01,
+    "osha_dose_pct": 0.01,
+    "niosh_projected_pct": 0.01,
+    "osha_projected_pct": 0.01
+   },
+   "alternative_if_other_reading": null,
+   "reference_lines": {
+    "EU_LEX8h_dBA": {
+     "lower_action": 80,
+     "upper_action": 85,
+     "limit": 87
+    },
+    "EU_peak_dBC": {
+     "lower_action": 135,
+     "upper_action": 137,
+     "limit": 140
+    },
+    "OSHA_action_level": "85 dBA TWA = 50 % dose",
+    "NIOSH_REL": "85 dBA TWA = 100 %"
+   }
+  },
+  {
+   "id": "D07",
+   "name": "8h85-osha-action-level",
+   "status": "sourced",
+   "note": "NIOSH REL = 100 %; OSHA 50 % = action level 85 dBA",
+   "csv": "dose/D07_8h85-osha-action-level.csv",
+   "start_utc_ms": 1791957600000,
+   "n_seconds": 28800,
+   "valid_s": 28800,
+   "segments": [
+    {
+     "seconds": 28800,
+     "LAeq_1s": 85.0,
+     "LAS": 85.0,
+     "LCpeak": 100.0
+    }
+   ],
+   "expected": {
+    "niosh_dose_pct": 100.0,
+    "niosh_twa": 85.0,
+    "niosh_projected_pct": 100.0,
+    "osha_dose_pct": 50.0,
+    "osha_twa": 84.9999,
+    "osha_projected_pct": 50.0,
+    "LAeq_Te": 85.0,
+    "LEX_8h": 85.0,
+    "LCpeak_max": 100.0
+   },
+   "tol": {
+    "niosh_dose_pct": 0.01,
+    "osha_dose_pct": 0.01,
+    "niosh_projected_pct": 0.01,
+    "osha_projected_pct": 0.01
+   },
+   "alternative_if_other_reading": null,
+   "reference_lines": {
+    "EU_LEX8h_dBA": {
+     "lower_action": 80,
+     "upper_action": 85,
+     "limit": 87
+    },
+    "EU_peak_dBC": {
+     "lower_action": 135,
+     "upper_action": 137,
+     "limit": 140
+    },
+    "OSHA_action_level": "85 dBA TWA = 50 % dose",
+    "NIOSH_REL": "85 dBA TWA = 100 %"
+   }
+  },
+  {
+   "id": "D08",
+   "name": "8h90-osha-pel",
+   "status": "sourced",
+   "note": "OSHA PEL = 100 %; NIOSH 317 %",
+   "csv": "dose/D08_8h90-osha-pel.csv",
+   "start_utc_ms": 1791957600000,
+   "n_seconds": 28800,
+   "valid_s": 28800,
+   "segments": [
+    {
+     "seconds": 28800,
+     "LAeq_1s": 90.0,
+     "LAS": 90.0,
+     "LCpeak": 105.0
+    }
+   ],
+   "expected": {
+    "niosh_dose_pct": 317.4802,
+    "niosh_twa": 90.0172,
+    "niosh_projected_pct": 317.4802,
+    "osha_dose_pct": 100.0,
+    "osha_twa": 90.0,
+    "osha_projected_pct": 100.0,
+    "LAeq_Te": 90.0,
+    "LEX_8h": 90.0,
+    "LCpeak_max": 105.0
+   },
+   "tol": {
+    "niosh_dose_pct": 0.01,
+    "osha_dose_pct": 0.01,
+    "niosh_projected_pct": 0.01,
+    "osha_projected_pct": 0.01
+   },
+   "alternative_if_other_reading": null,
+   "reference_lines": {
+    "EU_LEX8h_dBA": {
+     "lower_action": 80,
+     "upper_action": 85,
+     "limit": 87
+    },
+    "EU_peak_dBC": {
+     "lower_action": 135,
+     "upper_action": 137,
+     "limit": 140
+    },
+    "OSHA_action_level": "85 dBA TWA = 50 % dose",
+    "NIOSH_REL": "85 dBA TWA = 100 %"
+   }
+  },
+  {
+   "id": "D09",
+   "name": "8h-impulsive-LAeq95-LAS88",
+   "status": "sourced",
+   "note": "NIOSH from LAeq,1s (95), OSHA from LAS (88): differ by design",
+   "csv": "dose/D09_8h-impulsive-LAeq95-LAS88.csv",
+   "start_utc_ms": 1791957600000,
+   "n_seconds": 28800,
+   "valid_s": 28800,
+   "segments": [
+    {
+     "seconds": 28800,
+     "LAeq_1s": 95.0,
+     "LAS": 88.0,
+     "LCpeak": 110.0
+    }
+   ],
+   "expected": {
+    "niosh_dose_pct": 1007.9368,
+    "niosh_twa": 95.0343,
+    "niosh_projected_pct": 1007.9368,
+    "osha_dose_pct": 75.7858,
+    "osha_twa": 88.0,
+    "osha_projected_pct": 75.7858,
+    "LAeq_Te": 95.0,
+    "LEX_8h": 95.0,
+    "LCpeak_max": 110.0
+   },
+   "tol": {
+    "niosh_dose_pct": 0.01,
+    "osha_dose_pct": 0.01,
+    "niosh_projected_pct": 0.01,
+    "osha_projected_pct": 0.01
+   },
+   "alternative_if_other_reading": null,
+   "reference_lines": {
+    "EU_LEX8h_dBA": {
+     "lower_action": 80,
+     "upper_action": 85,
+     "limit": 87
+    },
+    "EU_peak_dBC": {
+     "lower_action": 135,
+     "upper_action": 137,
+     "limit": 140
+    },
+    "OSHA_action_level": "85 dBA TWA = 50 % dose",
+    "NIOSH_REL": "85 dBA TWA = 100 %"
+   }
+  },
+  {
+   "id": "D10",
+   "name": "4h88-gap1h-3h70",
+   "status": "UNCONFIRMED",
+   "note": "gap excluded from dose; projected/LEX use valid time Te = 7 h (UNCONFIRMED: SPEC says \"elapsed\")",
+   "csv": "dose/D10_4h88-gap1h-3h70.csv",
+   "start_utc_ms": 1791957600000,
+   "n_seconds": 28800,
+   "valid_s": 25200,
+   "segments": [
+    {
+     "seconds": 14400,
+     "LAeq_1s": 88.0,
+     "LAS": 88.0,
+     "LCpeak": 103.0
+    },
+    {
+     "seconds": 3600,
+     "LAeq_1s": null,
+     "LAS": null,
+     "LCpeak": null
+    },
+    {
+     "seconds": 10800,
+     "LAeq_1s": 70.0,
+     "LAS": 70.0,
+     "LCpeak": 85.0
+    }
+   ],
+   "expected": {
+    "niosh_dose_pct": 100.0,
+    "niosh_twa": 85.0,
+    "niosh_projected_pct": 114.2857,
+    "osha_dose_pct": 37.8929,
+    "osha_twa": 82.9998,
+    "osha_projected_pct": 43.3062,
+    "LAeq_Te": 85.6209,
+    "LEX_8h": 85.041,
+    "LCpeak_max": 103.0
+   },
+   "tol": {
+    "niosh_dose_pct": 0.01,
+    "osha_dose_pct": 0.01,
+    "niosh_projected_pct": 0.01,
+    "osha_projected_pct": 0.01
+   },
+   "alternative_if_other_reading": {
+    "niosh_projected_pct_if_elapsed_is_wall_clock": 100.0,
+    "LEX_8h_if_Te_is_wall_clock_with_gap_as_silence": 85.04101891564751
+   },
+   "reference_lines": {
+    "EU_LEX8h_dBA": {
+     "lower_action": 80,
+     "upper_action": 85,
+     "limit": 87
+    },
+    "EU_peak_dBC": {
+     "lower_action": 135,
+     "upper_action": 137,
+     "limit": 140
+    },
+    "OSHA_action_level": "85 dBA TWA = 50 % dose",
+    "NIOSH_REL": "85 dBA TWA = 100 %"
+   }
+  },
+  {
+   "id": "D11",
+   "name": "1h94-projected",
+   "status": "sourced",
+   "note": "NIOSH 100 % in 1 h -> projected 800 %; OSHA 21.8 % -> 174 %",
+   "csv": "dose/D11_1h94-projected.csv",
+   "start_utc_ms": 1791957600000,
+   "n_seconds": 3600,
+   "valid_s": 3600,
+   "segments": [
+    {
+     "seconds": 3600,
+     "LAeq_1s": 94.0,
+     "LAS": 94.0,
+     "LCpeak": 109.0
+    }
+   ],
+   "expected": {
+    "niosh_dose_pct": 100.0,
+    "niosh_twa": 85.0,
+    "niosh_projected_pct": 800.0,
+    "osha_dose_pct": 21.7638,
+    "osha_twa": 78.9998,
+    "osha_projected_pct": 174.1101,
+    "LAeq_Te": 94.0,
+    "LEX_8h": 84.9691,
+    "LCpeak_max": 109.0
+   },
+   "tol": {
+    "niosh_dose_pct": 0.01,
+    "osha_dose_pct": 0.01,
+    "niosh_projected_pct": 0.01,
+    "osha_projected_pct": 0.01
+   },
+   "alternative_if_other_reading": null,
+   "reference_lines": {
+    "EU_LEX8h_dBA": {
+     "lower_action": 80,
+     "upper_action": 85,
+     "limit": 87
+    },
+    "EU_peak_dBC": {
+     "lower_action": 135,
+     "upper_action": 137,
+     "limit": 140
+    },
+    "OSHA_action_level": "85 dBA TWA = 50 % dose",
+    "NIOSH_REL": "85 dBA TWA = 100 %"
+   }
+  },
+  {
+   "id": "D12",
+   "name": "8h78-peak136",
+   "status": "sourced",
+   "note": "dose 0; one second LCpeak 136.0 dB(C): between the EU lower (135) and upper (137) peak action values",
+   "csv": "dose/D12_8h78-peak136.csv",
+   "start_utc_ms": 1791957600000,
+   "n_seconds": 28800,
+   "valid_s": 28800,
+   "segments": [
+    {
+     "seconds": 14400,
+     "LAeq_1s": 78.0,
+     "LAS": 78.0,
+     "LCpeak": 93.0
+    },
+    {
+     "seconds": 1,
+     "LAeq_1s": 78.0,
+     "LAS": 78.0,
+     "LCpeak": 136.0
+    },
+    {
+     "seconds": 14399,
+     "LAeq_1s": 78.0,
+     "LAS": 78.0,
+     "LCpeak": 93.0
+    }
+   ],
+   "expected": {
+    "niosh_dose_pct": 0.0,
+    "niosh_twa": null,
+    "niosh_projected_pct": 0.0,
+    "osha_dose_pct": 0.0,
+    "osha_twa": null,
+    "osha_projected_pct": 0.0,
+    "LAeq_Te": 78.0,
+    "LEX_8h": 78.0,
+    "LCpeak_max": 136.0
+   },
+   "tol": {
+    "niosh_dose_pct": 0.01,
+    "osha_dose_pct": 0.01,
+    "niosh_projected_pct": 0.01,
+    "osha_projected_pct": 0.01
+   },
+   "alternative_if_other_reading": null,
+   "reference_lines": {
+    "EU_LEX8h_dBA": {
+     "lower_action": 80,
+     "upper_action": 85,
+     "limit": 87
+    },
+    "EU_peak_dBC": {
+     "lower_action": 135,
+     "upper_action": 137,
+     "limit": 140
+    },
+    "OSHA_action_level": "85 dBA TWA = 50 % dose",
+    "NIOSH_REL": "85 dBA TWA = 100 %"
+   }
+  },
+  {
+   "id": "D13",
+   "name": "2h97-6h60",
+   "status": "sourced",
+   "note": "exchange rate: NIOSH 400 %, OSHA 66 %",
+   "csv": "dose/D13_2h97-6h60.csv",
+   "start_utc_ms": 1791957600000,
+   "n_seconds": 28800,
+   "valid_s": 28800,
+   "segments": [
+    {
+     "seconds": 7200,
+     "LAeq_1s": 97.0,
+     "LAS": 97.0,
+     "LCpeak": 112.0
+    },
+    {
+     "seconds": 21600,
+     "LAeq_1s": 60.0,
+     "LAS": 60.0,
+     "LCpeak": 75.0
+    }
+   ],
+   "expected": {
+    "niosh_dose_pct": 400.0,
+    "niosh_twa": 91.0206,
+    "niosh_projected_pct": 400.0,
+    "osha_dose_pct": 65.9754,
+    "osha_twa": 86.9999,
+    "osha_projected_pct": 65.9754,
+    "LAeq_Te": 90.982,
+    "LEX_8h": 90.982,
+    "LCpeak_max": 112.0
+   },
+   "tol": {
+    "niosh_dose_pct": 0.01,
+    "osha_dose_pct": 0.01,
+    "niosh_projected_pct": 0.01,
+    "osha_projected_pct": 0.01
+   },
+   "alternative_if_other_reading": null,
+   "reference_lines": {
+    "EU_LEX8h_dBA": {
+     "lower_action": 80,
+     "upper_action": 85,
+     "limit": 87
+    },
+    "EU_peak_dBC": {
+     "lower_action": 135,
+     "upper_action": 137,
+     "limit": 140
+    },
+    "OSHA_action_level": "85 dBA TWA = 50 % dose",
+    "NIOSH_REL": "85 dBA TWA = 100 %"
+   }
+  }
+ ]
+}

@@ -1,0 +1,78 @@
+{
+  "name": "sound-meter",
+  "main": "expo-router/entry",
+  "version": "1.0.0",
+  "dependencies": {
+    "@expo/ui": "~57.0.24",
+    "expo": "~57.0.25",
+    "expo-build-properties": "~57.0.22",
+    "expo-constants": "~57.0.18",
+    "expo-dev-client": "~57.0.20",
+    "expo-device": "~57.0.2",
+    "expo-font": "~57.0.4",
+    "expo-glass-effect": "~57.0.4",
+    "expo-image": "~57.0.5",
+    "expo-linking": "~57.0.13",
+    "expo-localization": "~57.0.2",
+    "expo-notifications": "~57.0.23",
+    "expo-router": "~57.0.27",
+    "expo-splash-screen": "~57.0.10",
+    "expo-sqlite": "~57.0.4",
+    "expo-status-bar": "~57.0.1",
+    "expo-symbols": "~57.0.3",
+    "expo-system-ui": "~57.0.4",
+    "expo-web-browser": "~57.0.3",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-gesture-handler": "~2.32.0",
+    "react-native-reanimated": "4.5.1",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "~4.26.0",
+    "react-native-web": "~0.21.0",
+    "react-native-worklets": "0.10.1"
+  },
+  "devDependencies": {
+    "@types/jest": "29.5.14",
+    "@types/node": "^24.13.4",
+    "@types/react": "~19.2.2",
+    "eslint": "^9.39.5",
+    "eslint-config-expo": "^57.0.2",
+    "jest": "^29.7.0",
+    "jest-expo": "~57.0.6",
+    "typescript": "~6.0.3"
+  },
+  "scripts": {
+    "doctor": "scripts/doctor.sh",
+    "dev": "expo start --dev-client --port 8210",
+    "ios": "scripts/native.sh ios",
+    "android": "scripts/native.sh android",
+    "typecheck": "tsc --noEmit",
+    "lint": "expo lint",
+    "test": "jest",
+    "verify": "npm run typecheck && npm run lint && jest --silent",
+    "test:e2e": "scripts/e2e.sh ios",
+    "test:e2e:android": "scripts/e2e.sh android",
+    "preview": "scripts/native.sh ios preview && scripts/native.sh android preview",
+    "preview:eas": "eas build --profile preview --platform all",
+    "new-app": "scripts/new-app.sh",
+    "blind": "BLIND=1 jest test/blind/blind-set-1.test.ts",
+    "oracle": "ORACLE_EXPORT=1 jest src/engine/dsp/filters-export.test.ts && python3 -I -B oracle/weighting_oracle.py && python3 -I -B oracle/levels_oracle.py && PRINT_TABLES=1 jest src/engine/oracle.test.ts"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/ios/",
+      "/android/"
+    ]
+  },
+  "private": true,
+  "expo": {
+    "autolinking": {
+      "exclude": [
+        "expo-notifications"
+      ]
+    }
+  }
+}

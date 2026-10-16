@@ -1,0 +1,8 @@
+appId: ${APP_ID}
+---
+- launchApp:
+    stopApp: true
+- extendedWaitUntil:
+    visible:
+      id: meter-screen
+    timeout: 90000

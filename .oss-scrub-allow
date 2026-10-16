@@ -1,0 +1,3 @@
+# .oss-scrub-allow - findings of scripts/oss/scrub-check.sh that a human checked and accepts (public file, no values).
+# Reviewed 2026-10-16 for the first public source release.
+P-FIRSTNAME test/fixtures.ts             # common first name in made-up test data
